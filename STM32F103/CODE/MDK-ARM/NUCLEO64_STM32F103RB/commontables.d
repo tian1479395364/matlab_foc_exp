@@ -1,0 +1,14 @@
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\CommonTables\CommonTables.c
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\CommonTables\arm_common_tables.c
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+nucleo64_stm32f103rb\commontables.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+nucleo64_stm32f103rb\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+nucleo64_stm32f103rb\commontables.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+nucleo64_stm32f103rb\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+nucleo64_stm32f103rb\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+nucleo64_stm32f103rb\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+nucleo64_stm32f103rb\commontables.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_common_tables.h
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\CommonTables\arm_const_structs.c
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_const_structs.h
+nucleo64_stm32f103rb\commontables.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Source\CommonTables\arm_mve_tables.c

@@ -1,0 +1,15 @@
+nucleo64_stm32g431\foc_current.o: ..\MATLAB\FOC_CURRENT.c
+nucleo64_stm32g431\foc_current.o: ..\MATLAB\FOC_CURRENT.h
+nucleo64_stm32g431\foc_current.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
+nucleo64_stm32g431\foc_current.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+nucleo64_stm32g431\foc_current.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+nucleo64_stm32g431\foc_current.o: ..\MATLAB\rtwtypes.h
+nucleo64_stm32g431\foc_current.o: ..\MATLAB\FOC_CURRENT_types.h
+nucleo64_stm32g431\foc_current.o: ..\MATLAB\mw_cmsis.h
+nucleo64_stm32g431\foc_current.o: C:\Users\beau_\AppData\Local\Arm\Packs\ARM\CMSIS\5.7.0\CMSIS\DSP\Include\arm_math.h
+nucleo64_stm32g431\foc_current.o: ../Drivers/CMSIS/Include/cmsis_compiler.h
+nucleo64_stm32g431\foc_current.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+nucleo64_stm32g431\foc_current.o: ../Drivers/CMSIS/Include/cmsis_armcc.h
+nucleo64_stm32g431\foc_current.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
+nucleo64_stm32g431\foc_current.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+nucleo64_stm32g431\foc_current.o: ..\MATLAB\FOC_CURRENT_private.h
