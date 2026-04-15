@@ -26,6 +26,11 @@ typedef struct VectorUVW_S {
     double s64_w;       /**< phase W/C */
 } VectorUVW_T;
 
+typedef struct {
+    double m_sin;
+    double m_cos;
+} SinCos_T;
+
 /* ====================== 函数声明 ====================== */
 
 /* Clarke Transform: ABC → αβ */
@@ -43,6 +48,8 @@ void InverseClarkeTransform(const VectorAB_T *AB_in, VectorUVW_T *ABC_out);
 void CalcZeroSequenceVoltage(const VectorUVW_T *u_abc, 
                              double *u_zero);	
 
-void SVPWM_CalcDutyCycle(double u_zero, const VectorUVW_T *u_abc, double vbus, double tABC[3]);							 
+void SVPWM_CalcDutyCycle(double u_zero, const VectorUVW_T *u_abc, double vbus, double tABC[3]);		
+
+void sincos_func(double theta, double sin_cos[2]);					 
 
 #endif

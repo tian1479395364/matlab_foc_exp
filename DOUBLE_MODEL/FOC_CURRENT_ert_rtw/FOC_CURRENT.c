@@ -1,7 +1,6 @@
 #include "FOC_CURRENT.h"
 #include "jscl_transform.h"
 #include "rtwtypes.h"
-#include <math.h>
 
 DW rtDW;
 ExtU rtU;
@@ -24,8 +23,7 @@ void FOC_CURRENT_step(void)
     VectorDQ_T local_currentLoopDQ;
     VectorUVW_T local_BusConversion_InsertedFor;
     real_T local_sine_cose_theta[2];
-    local_sine_cose_theta[0] = sin(rtU.theta);
-    local_sine_cose_theta[1] = cos(rtU.theta);
+    sincos_func(rtU.theta, &local_sine_cose_theta[0]);
     local_BusConversion_InsertedFor.s64_u = rtU.s64_u;
     local_BusConversion_InsertedFor.s64_v = rtU.s64_v;
     local_BusConversion_InsertedFor.s64_w = rtU.s64_w;
@@ -39,9 +37,9 @@ void FOC_CURRENT_step(void)
     InverseParkTransform(&local_sine_cose_theta[0], &local_currentLoopDQ,
                          &rtDW.invpark);
     SVPWM_func();
-    rtY.tAout = rtDW.SVPWM_CalcDutyCycle[0];
-    rtY.tBout = rtDW.SVPWM_CalcDutyCycle[1];
-    rtY.tCout = rtDW.SVPWM_CalcDutyCycle[2];
+    rtY.tAout_out = rtDW.SVPWM_CalcDutyCycle[0];
+    rtY.tBout_out = rtDW.SVPWM_CalcDutyCycle[1];
+    rtY.tCout_out = rtDW.SVPWM_CalcDutyCycle[2];
 }
 
 void FOC_CURRENT_initialize(void)

@@ -87,3 +87,9 @@ void SVPWM_CalcDutyCycle(double u_zero, const VectorUVW_T *u_abc, double vbus, d
         }
     }
 }
+
+void sincos_func(double theta, double sin_cos[2])
+{
+    sin_cos[0] = sin(theta);
+    sin_cos[1] = cos(theta);
+}

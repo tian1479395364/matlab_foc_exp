@@ -26,9 +26,9 @@ typedef struct {
 } ExtU;
 
 typedef struct {
-    real_T tAout;
-    real_T tBout;
-    real_T tCout;
+    real_T tAout_out;
+    real_T tBout_out;
+    real_T tCout_out;
 } ExtY;
 
 extern DW rtDW;
