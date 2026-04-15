@@ -41,6 +41,8 @@ void InverseParkTransform(const VectorDQ_T *in, const double sin_cos[2], VectorA
 void InverseClarkeTransform(const VectorAB_T *AB_in, VectorUVW_T *ABC_out);
 
 void CalcZeroSequenceVoltage(const VectorUVW_T *u_abc, 
-                             double *u_zero);						 
+                             double *u_zero);	
+
+void SVPWM_CalcDutyCycle(double u_zero, const VectorUVW_T *u_abc, double vbus, double tABC[3]);							 
 
 #endif

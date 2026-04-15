@@ -15,11 +15,16 @@ typedef struct tag_RTM RT_MODEL;
 
 typedef struct {
     VectorAB_T invpark;
-    real_T Gain3[3];
+    real_T CCaller2[3];
     real_T RateTransition;
     real_T RateTransition1;
     real_T RateTransition2;
     real_T RateTransition7;
+    real_T Merge;
+    real_T IRefQ;
+    real_T Saturation3;
+    real_T Saturation1;
+    real_T Saturation2;
     real_T DiscreteTimeIntegrator3_DSTATE;
     real_T UnitDelay_DSTATE;
     real_T DiscreteTimeIntegrator3_DSTAT_l;

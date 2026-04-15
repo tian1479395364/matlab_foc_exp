@@ -12,7 +12,7 @@
 
 typedef struct {
     VectorAB_T invpark;
-    real_T Gain3[3];
+    real_T CCaller2[3];
 } DW;
 
 typedef struct {

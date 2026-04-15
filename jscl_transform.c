@@ -59,3 +59,31 @@ void CalcZeroSequenceVoltage(const VectorUVW_T *u_abc,
     /* e(t) = -1/2 * (u_max + u_min) */
     *u_zero = -0.5 * (max_val + min_val);
 }
+
+/**
+ * SVPWM_CalcDutyCycle - 支持马鞍波（零序注入版）
+ * 参数顺序必须与 C Caller 输入端口从上到下完全一致：
+ *   1. u_zero   (double)
+ *   2. u_abc    (VectorUVW_T *)
+ *   3. vbus     (double)
+ * 输出：tABC[3] 三相 PWM 占空比（已乘以 4199.0）
+ */
+void SVPWM_CalcDutyCycle(double u_zero, const VectorUVW_T *u_abc, double vbus, double tABC[3])
+{
+    double half = 0.5;
+    double pwm_scale = 4199.0;     // 根据你的 PWM 周期设置
+
+    /* 叠加零序电压后计算 PWM 占空比（与你原来 Simulink 逻辑一致） */
+    tABC[0] = (- (u_abc->s64_u + u_zero) / vbus + 0.5) * pwm_scale;
+    tABC[1] = (- (u_abc->s64_v + u_zero) / vbus + 0.5) * pwm_scale;
+    tABC[2] = (- (u_abc->s64_w + u_zero) / vbus + 0.5) * pwm_scale;
+
+    /* 限幅保护（非常重要） */
+    for (int i = 0; i < 3; i++) {
+        if (tABC[i] > pwm_scale * 0.995) {
+            tABC[i] = pwm_scale * 0.995;
+        } else if (tABC[i] < pwm_scale * 0.005) {
+            tABC[i] = pwm_scale * 0.005;
+        }
+    }
+}
