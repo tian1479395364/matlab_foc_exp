@@ -12,7 +12,7 @@
 
 typedef struct {
     VectorAB_T invpark;
-    real_T CCaller2[3];
+    real_T SVPWM_CalcDutyCycle[3];
 } DW;
 
 typedef struct {

@@ -35,7 +35,7 @@ void ClarkeTransform(const VectorUVW_T *ABC_in, VectorAB_T *AB_out);
 void ParkTransform(const VectorAB_T *AB_in, const double sin_cos[2], VectorDQ_T *DQ_out);
 
 /* Inverse Park Transform: dq → αβ */
-void InverseParkTransform(const double sin_cos[2], const VectorDQ_T *in, VectorAB_T *out);
+void InverseParkTransform(const VectorDQ_T *in, VectorAB_T *out);
 
 /* Inverse Clarke Transform: αβ → ABC */
 void InverseClarkeTransform(const VectorAB_T *AB_in, VectorUVW_T *ABC_out);

@@ -21,7 +21,7 @@ void ParkTransform(const VectorAB_T *AB_in, const double sin_cos[2], VectorDQ_T 
 }
 
 /* ====================== Inverse Park Transform ====================== */
-void InverseParkTransform(const VectorDQ_T *in, const double sin_cos[2], VectorAB_T *out)
+void InverseParkTransform(const double sin_cos[2], const VectorDQ_T *in, VectorAB_T *out)
 {
     double cos_theta = sin_cos[1];//cose
     double sin_theta = sin_cos[0];//sine
