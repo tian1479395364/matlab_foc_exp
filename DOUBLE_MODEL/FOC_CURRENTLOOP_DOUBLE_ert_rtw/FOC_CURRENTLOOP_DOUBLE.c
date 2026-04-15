@@ -12,34 +12,34 @@
 # define rtRound(v)                    ( ((v) >= 0) ? floor((v) + 0.5) : ceil((v) - 0.5) )
 #endif
 
-g_ty_DW g_l5;
-static g_ty_RT_MODEL g_j_;
-g_ty_RT_MODEL *const g_j = &g_j_;
+DW rtDW;
+static RT_MODEL rtM_;
+RT_MODEL *const rtM = &rtM_;
 extern real_T rt_modd(real_T u0, real_T u1);
-static void t_p(void);
+static void SVPWM1(void);
 static void rate_scheduler(void);
 static void rate_scheduler(void)
 {
-    (g_j->Timing.TaskCounters.TID[1])++;
-    if ((g_j->Timing.TaskCounters.TID[1]) > 1) {
-        g_j->Timing.TaskCounters.TID[1] = 0;
+    (rtM->Timing.TaskCounters.TID[1])++;
+    if ((rtM->Timing.TaskCounters.TID[1]) > 1) {
+        rtM->Timing.TaskCounters.TID[1] = 0;
     }
 }
 
-static void t_p(void)
+static void SVPWM1(void)
 {
-    VectorUVW_T local_;
-    real_T local_bw;
-    real_T local_gb_idx_0;
-    real_T local_gb_idx_1;
-    InverseClarkeTransform(&g_l5.g_f_p, &local_);
-    CalcZeroSequenceVoltage(&local_, &local_bw);
-    local_gb_idx_0 = local_bw + local_.s64_u;
-    local_gb_idx_1 = local_bw + local_.s64_v;
-    local_bw += local_.s64_w;
-    g_l5.g_f_bz[0] = (-local_gb_idx_0 / g_l5.g_f_k + 0.5) * 4199.0;
-    g_l5.g_f_bz[1] = (-local_gb_idx_1 / g_l5.g_f_k + 0.5) * 4199.0;
-    g_l5.g_f_bz[2] = (-local_bw / g_l5.g_f_k + 0.5) * 4199.0;
+    VectorUVW_T rtb_spwm;
+    real_T rtb_Sum2_idx_0;
+    real_T rtb_Sum2_idx_1;
+    real_T rtb_eit;
+    InverseClarkeTransform(&rtDW.invpark, &rtb_spwm);
+    CalcZeroSequenceVoltage(&rtb_spwm, &rtb_eit);
+    rtb_Sum2_idx_0 = rtb_eit + rtb_spwm.s64_u;
+    rtb_Sum2_idx_1 = rtb_eit + rtb_spwm.s64_v;
+    rtb_eit += rtb_spwm.s64_w;
+    rtDW.Gain3[0] = (-rtb_Sum2_idx_0 / rtDW.RateTransition7 + 0.5) * 4199.0;
+    rtDW.Gain3[1] = (-rtb_Sum2_idx_1 / rtDW.RateTransition7 + 0.5) * 4199.0;
+    rtDW.Gain3[2] = (-rtb_eit / rtDW.RateTransition7 + 0.5) * 4199.0;
 }
 
 real_T rt_modd(real_T u0, real_T u1)
@@ -74,120 +74,130 @@ real_T rt_modd(real_T u0, real_T u1)
 
 void FOC_CURRENTLOOP_DOUBLE_step(void)
 {
-    real_T local_l;
-    VectorAB_T local_j;
-    VectorDQ_T local_al;
-    VectorDQ_T local_b3;
-    VectorUVW_T local_eh;
-    real_T local_j1[2];
-    real_T local_;
-    real_T local_ccc;
-    real_T local_ef;
-    real_T local_f;
-    real_T local_h0e;
-    real_T local_jc_idx_0;
-    real_T local_jc_idx_1;
-    real_T local_jc_idx_2;
-    real_T local_kne;
-    real_T local_ko;
-    real_T local_m2;
-    real_T local_nr;
-    real_T local_p5;
-    real_T local_pg;
-    if (g_j->Timing.TaskCounters.TID[1] == 0) {
-        g_l5.g_f_i = g_l5.g_f_h;
-        g_l5.g_f_b = g_l5.g_f_cb;
-        g_l5.g_f_bl = g_l5.g_f_k_k;
+    real_T rtb_Signal1;
+    VectorAB_T rtb_ClarkeTransform;
+    VectorDQ_T rtb_ParkTransform;
+    VectorDQ_T rtb_currentLoopDQ;
+    VectorUVW_T rtb_BusConversion_InsertedFor_C;
+    real_T rtb_TmpSignalConversionAtParkTr[2];
+    real_T rtb_Add_k;
+    real_T rtb_Divide;
+    real_T rtb_Gain4;
+    real_T rtb_Mod;
+    real_T rtb_Product;
+    real_T rtb_Product_c;
+    real_T rtb_Product_e;
+    real_T rtb_Product_gk;
+    real_T rtb_Product_jc_idx_0;
+    real_T rtb_Product_jc_idx_1;
+    real_T rtb_Product_jc_idx_2;
+    real_T rtb_Product_l;
+    real_T rtb_sine_cosine_o1;
+    real_T rtb_sine_cosine_o2;
+    if (rtM->Timing.TaskCounters.TID[1] == 0) {
+        rtDW.RateTransition = rtDW.RateTransition_Buffer0;
+        rtDW.RateTransition1 = rtDW.RateTransition1_Buffer0;
+        rtDW.RateTransition2 = rtDW.RateTransition2_Buffer0;
     }
 
-    local_jc_idx_0 = -(0.00023815194093831864 * g_l5.g_f_i - 0.5) + 0.5;
-    if (local_jc_idx_0 > 1.0) {
-        local_jc_idx_0 = 1.0;
-    } else if (local_jc_idx_0 < 0.0) {
-        local_jc_idx_0 = 0.0;
+    rtb_Product_jc_idx_0 = -(0.00023815194093831864 * rtDW.RateTransition - 0.5)
+        + 0.5;
+    if (rtb_Product_jc_idx_0 > 1.0) {
+        rtb_Product_jc_idx_0 = 1.0;
+    } else if (rtb_Product_jc_idx_0 < 0.0) {
+        rtb_Product_jc_idx_0 = 0.0;
     }
 
-    local_jc_idx_1 = -(0.00023815194093831864 * g_l5.g_f_b - 0.5) + 0.5;
-    if (local_jc_idx_1 > 1.0) {
-        local_jc_idx_1 = 1.0;
-    } else if (local_jc_idx_1 < 0.0) {
-        local_jc_idx_1 = 0.0;
+    rtb_Product_jc_idx_1 = -(0.00023815194093831864 * rtDW.RateTransition1 - 0.5)
+        + 0.5;
+    if (rtb_Product_jc_idx_1 > 1.0) {
+        rtb_Product_jc_idx_1 = 1.0;
+    } else if (rtb_Product_jc_idx_1 < 0.0) {
+        rtb_Product_jc_idx_1 = 0.0;
     }
 
-    local_jc_idx_2 = -(0.00023815194093831864 * g_l5.g_f_bl - 0.5) + 0.5;
-    if (local_jc_idx_2 > 1.0) {
-        local_jc_idx_2 = 1.0;
-    } else if (local_jc_idx_2 < 0.0) {
-        local_jc_idx_2 = 0.0;
+    rtb_Product_jc_idx_2 = -(0.00023815194093831864 * rtDW.RateTransition2 - 0.5)
+        + 0.5;
+    if (rtb_Product_jc_idx_2 > 1.0) {
+        rtb_Product_jc_idx_2 = 1.0;
+    } else if (rtb_Product_jc_idx_2 < 0.0) {
+        rtb_Product_jc_idx_2 = 0.0;
     }
 
-    local_ = ((local_jc_idx_1 + local_jc_idx_2) + local_jc_idx_0) *
-        0.33333333333333331;
-    local_jc_idx_0 = (local_jc_idx_0 - local_) * 24.0;
-    local_jc_idx_1 = (local_jc_idx_1 - local_) * 24.0;
-    local_jc_idx_2 = (local_jc_idx_2 - local_) * 24.0;
-    if (g_l5.g_f_lw != 0) {
-        g_l5.g_f_p_m = 0.0;
-        if (g_l5.g_f_p_m > 1.0E+7) {
-            g_l5.g_f_p_m = 1.0E+7;
-        } else if (g_l5.g_f_p_m < -1.0E+7) {
-            g_l5.g_f_p_m = -1.0E+7;
+    rtb_sine_cosine_o2 = ((rtb_Product_jc_idx_1 + rtb_Product_jc_idx_2) +
+                          rtb_Product_jc_idx_0) * 0.33333333333333331;
+    rtb_Product_jc_idx_0 = (rtb_Product_jc_idx_0 - rtb_sine_cosine_o2) * 24.0;
+    rtb_Product_jc_idx_1 = (rtb_Product_jc_idx_1 - rtb_sine_cosine_o2) * 24.0;
+    rtb_Product_jc_idx_2 = (rtb_Product_jc_idx_2 - rtb_sine_cosine_o2) * 24.0;
+    if (rtDW.DiscreteTimeIntegrator3_IC_LOAD != 0) {
+        rtDW.DiscreteTimeIntegrator3_DSTATE = 0.0;
+        if (rtDW.DiscreteTimeIntegrator3_DSTATE > 1.0E+7) {
+            rtDW.DiscreteTimeIntegrator3_DSTATE = 1.0E+7;
+        } else if (rtDW.DiscreteTimeIntegrator3_DSTATE < -1.0E+7) {
+            rtDW.DiscreteTimeIntegrator3_DSTATE = -1.0E+7;
         }
     }
 
-    local_p5 = g_l5.g_f_p_m * 0.1763 / 0.000195185;
-    if (g_l5.g_f_c >= -3.1415926535897931) {
-        if (g_l5.g_f_c <= 3.1415926535897931) {
-            local_pg = g_l5.g_f_c;
+    rtb_Product = rtDW.DiscreteTimeIntegrator3_DSTATE * 0.1763 / 0.000195185;
+    if (rtDW.UnitDelay_DSTATE >= -3.1415926535897931) {
+        if (rtDW.UnitDelay_DSTATE <= 3.1415926535897931) {
+            rtb_Mod = rtDW.UnitDelay_DSTATE;
         } else {
-            local_pg = g_l5.g_f_c - 6.2831854820251465;
+            rtb_Mod = rtDW.UnitDelay_DSTATE - 6.2831854820251465;
         }
     } else {
-        local_pg = g_l5.g_f_c + 6.2831854820251465;
+        rtb_Mod = rtDW.UnitDelay_DSTATE + 6.2831854820251465;
     }
 
-    local_f = 5.0 * local_pg;
-    local_ef = sin(local_f);
-    local_ = cos(local_f);
-    local_jc_idx_0 = (0.66666666666666663 * local_jc_idx_0 +
-                      -0.33333333333333331 * local_jc_idx_1) +
-        -0.33333333333333331 * local_jc_idx_2;
-    local_f = 0.57735026918962573 * local_jc_idx_1 + -0.57735026918962573 *
-        local_jc_idx_2;
-    local_jc_idx_1 = (local_f * local_ - local_jc_idx_0 * local_ef) /
+    rtb_Gain4 = 5.0 * rtb_Mod;
+    rtb_sine_cosine_o1 = sin(rtb_Gain4);
+    rtb_sine_cosine_o2 = cos(rtb_Gain4);
+    rtb_Product_jc_idx_0 = (0.66666666666666663 * rtb_Product_jc_idx_0 +
+                            -0.33333333333333331 * rtb_Product_jc_idx_1) +
+        -0.33333333333333331 * rtb_Product_jc_idx_2;
+    rtb_Gain4 = 0.57735026918962573 * rtb_Product_jc_idx_1 +
+        -0.57735026918962573 * rtb_Product_jc_idx_2;
+    rtb_Product_jc_idx_1 = (rtb_Gain4 * rtb_sine_cosine_o2 -
+                            rtb_Product_jc_idx_0 * rtb_sine_cosine_o1) /
         0.000195185;
-    if (g_l5.g_f_o != 0) {
-        g_l5.g_f_l = 0.0;
-        if (g_l5.g_f_l > 1.0E+7) {
-            g_l5.g_f_l = 1.0E+7;
-        } else if (g_l5.g_f_l < -1.0E+7) {
-            g_l5.g_f_l = -1.0E+7;
+    if (rtDW.DiscreteTimeIntegrator3_IC_LO_o != 0) {
+        rtDW.DiscreteTimeIntegrator3_DSTAT_l = 0.0;
+        if (rtDW.DiscreteTimeIntegrator3_DSTAT_l > 1.0E+7) {
+            rtDW.DiscreteTimeIntegrator3_DSTAT_l = 1.0E+7;
+        } else if (rtDW.DiscreteTimeIntegrator3_DSTAT_l < -1.0E+7) {
+            rtDW.DiscreteTimeIntegrator3_DSTAT_l = -1.0E+7;
         }
     }
 
-    local_jc_idx_2 = 5.0 * g_l5.g_f_i_c;
-    local_m2 = g_l5.g_f_l * local_jc_idx_2 * 0.000195185 / 0.000195185;
-    local_ccc = local_jc_idx_2 * 0.0109 / 0.000195185;
-    local_ko = local_jc_idx_2 * g_l5.g_f_p_m * 0.000195185 / 0.000195185;
-    local_jc_idx_0 = (local_jc_idx_0 * local_ + local_f * local_ef) /
-        0.000195185;
-    local_kne = g_l5.g_f_l * 0.1763 / 0.000195185;
-    local_h0e = ((0.0109 * g_l5.g_f_p_m * 7.5 - 0.05 * g_l5.g_f_i_c) -
-                 g_l5.g_f_i_c * 0.000159) / 0.00058;
-    local_nr = 5.0E-5 * g_l5.g_f_i_c + local_pg;
-    local_jc_idx_2 = g_l5.g_f_l * local_ - g_l5.g_f_p_m * local_ef;
-    local_f = g_l5.g_f_l * local_ef + g_l5.g_f_p_m * local_;
-    local_pg = rt_modd(5.0 * local_pg, 6.2831853071795862);
-    if (g_j->Timing.TaskCounters.TID[1] == 0) {
-        g_l5.g_f_k = 24.0;
+    rtb_Product_jc_idx_2 = 5.0 * rtDW.DiscreteTimeIntegrator_DSTATE;
+    rtb_Product_c = rtDW.DiscreteTimeIntegrator3_DSTAT_l * rtb_Product_jc_idx_2 *
+        0.000195185 / 0.000195185;
+    rtb_Product_gk = rtb_Product_jc_idx_2 * 0.0109 / 0.000195185;
+    rtb_Product_e = rtb_Product_jc_idx_2 * rtDW.DiscreteTimeIntegrator3_DSTATE *
+        0.000195185 / 0.000195185;
+    rtb_Product_jc_idx_0 = (rtb_Product_jc_idx_0 * rtb_sine_cosine_o2 +
+                            rtb_Gain4 * rtb_sine_cosine_o1) / 0.000195185;
+    rtb_Product_l = rtDW.DiscreteTimeIntegrator3_DSTAT_l * 0.1763 / 0.000195185;
+    rtb_Divide = ((0.0109 * rtDW.DiscreteTimeIntegrator3_DSTATE * 7.5 - 0.05 *
+                   rtDW.DiscreteTimeIntegrator_DSTATE) -
+                  rtDW.DiscreteTimeIntegrator_DSTATE * 0.000159) / 0.00058;
+    rtb_Add_k = 5.0E-5 * rtDW.DiscreteTimeIntegrator_DSTATE + rtb_Mod;
+    rtb_Product_jc_idx_2 = rtDW.DiscreteTimeIntegrator3_DSTAT_l *
+        rtb_sine_cosine_o2 - rtDW.DiscreteTimeIntegrator3_DSTATE *
+        rtb_sine_cosine_o1;
+    rtb_Gain4 = rtDW.DiscreteTimeIntegrator3_DSTAT_l * rtb_sine_cosine_o1 +
+        rtDW.DiscreteTimeIntegrator3_DSTATE * rtb_sine_cosine_o2;
+    rtb_Mod = rt_modd(5.0 * rtb_Mod, 6.2831853071795862);
+    if (rtM->Timing.TaskCounters.TID[1] == 0) {
+        rtDW.RateTransition7 = 24.0;
 
         {
-            real_T *pDataValues = (real_T *) g_l5.g_f_e2.DataPtr;
-            real_T *pTimeValues = (real_T *) g_l5.g_f_e2.TimePtr;
-            int_T currTimeIndex = g_l5.g_f_em.PrevIndex;
-            real_T t = ((g_j->Timing.clockTick1) * 0.0001);
+            real_T *pDataValues = (real_T *) rtDW.fromWS_Signal1_PWORK.DataPtr;
+            real_T *pTimeValues = (real_T *) rtDW.fromWS_Signal1_PWORK.TimePtr;
+            int_T currTimeIndex = rtDW.fromWS_Signal1_IWORK.PrevIndex;
+            real_T t = ((rtM->Timing.clockTick1) * 0.0001);
             if (t > pTimeValues[6]) {
-                local_l = 0.0;
+                rtb_Signal1 = 0.0;
             } else {
                 if (t <= pTimeValues[0]) {
                     currTimeIndex = 0;
@@ -205,16 +215,16 @@ void FOC_CURRENTLOOP_DOUBLE_step(void)
                     }
                 }
 
-                g_l5.g_f_em.PrevIndex = currTimeIndex;
+                rtDW.fromWS_Signal1_IWORK.PrevIndex = currTimeIndex;
 
                 {
                     real_T t1 = pTimeValues[currTimeIndex];
                     real_T t2 = pTimeValues[currTimeIndex + 1];
                     if (t1 == t2) {
                         if (t < t1) {
-                            local_l = pDataValues[currTimeIndex];
+                            rtb_Signal1 = pDataValues[currTimeIndex];
                         } else {
-                            local_l = pDataValues[currTimeIndex + 1];
+                            rtb_Signal1 = pDataValues[currTimeIndex + 1];
                         }
                     } else {
                         real_T f1 = (t2 - t) / (t2 - t1);
@@ -224,80 +234,86 @@ void FOC_CURRENTLOOP_DOUBLE_step(void)
                         int_T TimeIndex = currTimeIndex;
                         d1 = pDataValues[TimeIndex];
                         d2 = pDataValues[TimeIndex + 1];
-                        local_l = (real_T) rtInterpolate(d1, d2, f1, f2);
+                        rtb_Signal1 = (real_T) rtInterpolate(d1, d2, f1, f2);
                         pDataValues += 7;
                     }
                 }
             }
         }
 
-        local_j1[0] = sin(local_pg);
-        local_j1[1] = cos(local_pg);
-        if (local_jc_idx_2 > 50.0) {
-            local_eh.s64_u = 50.0;
-        } else if (local_jc_idx_2 < -50.0) {
-            local_eh.s64_u = -50.0;
+        rtb_TmpSignalConversionAtParkTr[0] = sin(rtb_Mod);
+        rtb_TmpSignalConversionAtParkTr[1] = cos(rtb_Mod);
+        if (rtb_Product_jc_idx_2 > 50.0) {
+            rtb_BusConversion_InsertedFor_C.s64_u = 50.0;
+        } else if (rtb_Product_jc_idx_2 < -50.0) {
+            rtb_BusConversion_InsertedFor_C.s64_u = -50.0;
         } else {
-            local_eh.s64_u = local_jc_idx_2;
+            rtb_BusConversion_InsertedFor_C.s64_u = rtb_Product_jc_idx_2;
         }
 
-        local_ = -0.5 * local_jc_idx_2 + 0.8660254037844386 * local_f;
-        if (local_ > 50.0) {
-            local_eh.s64_v = 50.0;
-        } else if (local_ < -50.0) {
-            local_eh.s64_v = -50.0;
+        rtb_sine_cosine_o2 = -0.5 * rtb_Product_jc_idx_2 + 0.8660254037844386 *
+            rtb_Gain4;
+        if (rtb_sine_cosine_o2 > 50.0) {
+            rtb_BusConversion_InsertedFor_C.s64_v = 50.0;
+        } else if (rtb_sine_cosine_o2 < -50.0) {
+            rtb_BusConversion_InsertedFor_C.s64_v = -50.0;
         } else {
-            local_eh.s64_v = local_;
+            rtb_BusConversion_InsertedFor_C.s64_v = rtb_sine_cosine_o2;
         }
 
-        local_ = -0.5 * local_jc_idx_2 + -0.8660254037844386 * local_f;
-        if (local_ > 50.0) {
-            local_eh.s64_w = 50.0;
-        } else if (local_ < -50.0) {
-            local_eh.s64_w = -50.0;
+        rtb_sine_cosine_o2 = -0.5 * rtb_Product_jc_idx_2 + -0.8660254037844386 *
+            rtb_Gain4;
+        if (rtb_sine_cosine_o2 > 50.0) {
+            rtb_BusConversion_InsertedFor_C.s64_w = 50.0;
+        } else if (rtb_sine_cosine_o2 < -50.0) {
+            rtb_BusConversion_InsertedFor_C.s64_w = -50.0;
         } else {
-            local_eh.s64_w = local_;
+            rtb_BusConversion_InsertedFor_C.s64_w = rtb_sine_cosine_o2;
         }
 
-        ClarkeTransform(&local_eh, &local_j);
-        ParkTransform(&local_j, &local_j1[0], &local_al);
-        CurrentLoopDQ(0.0, local_al.s64_d, local_l, local_al.s64_q,
-                      0.24527670483636954, 221.54511393115223,
-                      0.24527670483636954, 221.54511393115223, &local_b3);
-        InverseParkTransform(&local_b3, &local_j1[0], &g_l5.g_f_p);
-        t_p();
-        g_l5.g_f_h = g_l5.g_f_bz[0];
-        g_l5.g_f_cb = g_l5.g_f_bz[1];
-        g_l5.g_f_k_k = g_l5.g_f_bz[2];
+        ClarkeTransform(&rtb_BusConversion_InsertedFor_C, &rtb_ClarkeTransform);
+        ParkTransform(&rtb_ClarkeTransform, &rtb_TmpSignalConversionAtParkTr[0],
+                      &rtb_ParkTransform);
+        CurrentLoopDQ(0.0, rtb_ParkTransform.s64_d, rtb_Signal1,
+                      rtb_ParkTransform.s64_q, 0.24527670483636954,
+                      221.54511393115223, 0.24527670483636954,
+                      221.54511393115223, &rtb_currentLoopDQ);
+        InverseParkTransform(&rtb_currentLoopDQ,
+                             &rtb_TmpSignalConversionAtParkTr[0], &rtDW.invpark);
+        SVPWM1();
+        rtDW.RateTransition_Buffer0 = rtDW.Gain3[0];
+        rtDW.RateTransition1_Buffer0 = rtDW.Gain3[1];
+        rtDW.RateTransition2_Buffer0 = rtDW.Gain3[2];
     }
 
-    g_l5.g_f_lw = 0U;
-    g_l5.g_f_p_m += (((local_jc_idx_1 - local_m2) - local_ccc) - local_p5) *
-        5.0E-5;
-    if (g_l5.g_f_p_m > 1.0E+7) {
-        g_l5.g_f_p_m = 1.0E+7;
-    } else if (g_l5.g_f_p_m < -1.0E+7) {
-        g_l5.g_f_p_m = -1.0E+7;
+    rtDW.DiscreteTimeIntegrator3_IC_LOAD = 0U;
+    rtDW.DiscreteTimeIntegrator3_DSTATE += (((rtb_Product_jc_idx_1 -
+        rtb_Product_c) - rtb_Product_gk) - rtb_Product) * 5.0E-5;
+    if (rtDW.DiscreteTimeIntegrator3_DSTATE > 1.0E+7) {
+        rtDW.DiscreteTimeIntegrator3_DSTATE = 1.0E+7;
+    } else if (rtDW.DiscreteTimeIntegrator3_DSTATE < -1.0E+7) {
+        rtDW.DiscreteTimeIntegrator3_DSTATE = -1.0E+7;
     }
 
-    g_l5.g_f_c = local_nr;
-    g_l5.g_f_o = 0U;
-    g_l5.g_f_l += ((local_jc_idx_0 + local_ko) - local_kne) * 5.0E-5;
-    if (g_l5.g_f_l > 1.0E+7) {
-        g_l5.g_f_l = 1.0E+7;
-    } else if (g_l5.g_f_l < -1.0E+7) {
-        g_l5.g_f_l = -1.0E+7;
+    rtDW.UnitDelay_DSTATE = rtb_Add_k;
+    rtDW.DiscreteTimeIntegrator3_IC_LO_o = 0U;
+    rtDW.DiscreteTimeIntegrator3_DSTAT_l += ((rtb_Product_jc_idx_0 +
+        rtb_Product_e) - rtb_Product_l) * 5.0E-5;
+    if (rtDW.DiscreteTimeIntegrator3_DSTAT_l > 1.0E+7) {
+        rtDW.DiscreteTimeIntegrator3_DSTAT_l = 1.0E+7;
+    } else if (rtDW.DiscreteTimeIntegrator3_DSTAT_l < -1.0E+7) {
+        rtDW.DiscreteTimeIntegrator3_DSTAT_l = -1.0E+7;
     }
 
-    g_l5.g_f_i_c += 5.0E-5 * local_h0e;
-    if (g_l5.g_f_i_c > 1.0E+7) {
-        g_l5.g_f_i_c = 1.0E+7;
-    } else if (g_l5.g_f_i_c < -1.0E+7) {
-        g_l5.g_f_i_c = -1.0E+7;
+    rtDW.DiscreteTimeIntegrator_DSTATE += 5.0E-5 * rtb_Divide;
+    if (rtDW.DiscreteTimeIntegrator_DSTATE > 1.0E+7) {
+        rtDW.DiscreteTimeIntegrator_DSTATE = 1.0E+7;
+    } else if (rtDW.DiscreteTimeIntegrator_DSTATE < -1.0E+7) {
+        rtDW.DiscreteTimeIntegrator_DSTATE = -1.0E+7;
     }
 
-    if (g_j->Timing.TaskCounters.TID[1] == 0) {
-        g_j->Timing.clockTick1++;
+    if (rtM->Timing.TaskCounters.TID[1] == 0) {
+        rtM->Timing.clockTick1++;
     }
 
     rate_scheduler();
@@ -312,11 +328,11 @@ void FOC_CURRENTLOOP_DOUBLE_initialize(void)
         static real_T pDataValues0[] = { 0.0, 18.0, 12.0, 18.0, -9.0, -15.0, 0.0
         } ;
 
-        g_l5.g_f_e2.TimePtr = (void *) pTimeValues0;
-        g_l5.g_f_e2.DataPtr = (void *) pDataValues0;
-        g_l5.g_f_em.PrevIndex = 0;
+        rtDW.fromWS_Signal1_PWORK.TimePtr = (void *) pTimeValues0;
+        rtDW.fromWS_Signal1_PWORK.DataPtr = (void *) pDataValues0;
+        rtDW.fromWS_Signal1_IWORK.PrevIndex = 0;
     }
 
-    g_l5.g_f_lw = 1U;
-    g_l5.g_f_o = 1U;
+    rtDW.DiscreteTimeIntegrator3_IC_LOAD = 1U;
+    rtDW.DiscreteTimeIntegrator3_IC_LO_o = 1U;
 }

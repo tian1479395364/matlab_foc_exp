@@ -11,29 +11,29 @@
 #include "jscl_park.h"
 
 typedef struct {
-    VectorAB_T g_f_p;
-    real_T g_f_b[3];
-} g_ty_DW;
+    VectorAB_T invpark;
+    real_T Gain3[3];
+} DW;
 
 typedef struct {
-    real_T g_f_e;
-    real_T g_f_m;
-    real_T g_f_j;
-    real_T g_f_h;
-    real_T g_f_a;
-    real_T g_f_o;
-    real_T g_f_hk;
-} g_ty_ExtU;
+    real_T theta;
+    real_T Vbus;
+    real_T IRefD;
+    real_T IRefQ;
+    real_T s64_u;
+    real_T s64_v;
+    real_T s64_w;
+} ExtU;
 
 typedef struct {
-    real_T g_f_f;
-    real_T g_f_i;
-    real_T g_f_h;
-} g_ty_ExtY;
+    real_T tAout;
+    real_T tBout;
+    real_T tCout;
+} ExtY;
 
-extern g_ty_DW g_l5;
-extern g_ty_ExtU g_m;
-extern g_ty_ExtY g_ho;
+extern DW rtDW;
+extern ExtU rtU;
+extern ExtY rtY;
 extern void FOC_CURRENT_initialize(void);
 extern void FOC_CURRENT_step(void);
 

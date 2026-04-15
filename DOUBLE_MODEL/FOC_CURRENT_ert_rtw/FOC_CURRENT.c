@@ -3,48 +3,51 @@
 #include "rtwtypes.h"
 #include <math.h>
 
-g_ty_DW g_l5;
-g_ty_ExtU g_m;
-g_ty_ExtY g_ho;
-static void t_p(void);
-static void t_p(void)
+DW rtDW;
+ExtU rtU;
+ExtY rtY;
+static void SVPWM1(void);
+static void SVPWM1(void)
 {
-    VectorUVW_T local_;
-    real_T local_bw;
-    real_T local_gb_idx_0;
-    real_T local_gb_idx_1;
-    InverseClarkeTransform(&g_l5.g_f_p, &local_);
-    CalcZeroSequenceVoltage(&local_, &local_bw);
-    local_gb_idx_0 = local_bw + local_.s64_u;
-    local_gb_idx_1 = local_bw + local_.s64_v;
-    local_bw += local_.s64_w;
-    g_l5.g_f_b[0] = (-local_gb_idx_0 / g_m.g_f_m + 0.5) * 4199.0;
-    g_l5.g_f_b[1] = (-local_gb_idx_1 / g_m.g_f_m + 0.5) * 4199.0;
-    g_l5.g_f_b[2] = (-local_bw / g_m.g_f_m + 0.5) * 4199.0;
+    VectorUVW_T rtb_spwm;
+    real_T rtb_Sum2_idx_0;
+    real_T rtb_Sum2_idx_1;
+    real_T rtb_eit;
+    InverseClarkeTransform(&rtDW.invpark, &rtb_spwm);
+    CalcZeroSequenceVoltage(&rtb_spwm, &rtb_eit);
+    rtb_Sum2_idx_0 = rtb_eit + rtb_spwm.s64_u;
+    rtb_Sum2_idx_1 = rtb_eit + rtb_spwm.s64_v;
+    rtb_eit += rtb_spwm.s64_w;
+    rtDW.Gain3[0] = (-rtb_Sum2_idx_0 / rtU.Vbus + 0.5) * 4199.0;
+    rtDW.Gain3[1] = (-rtb_Sum2_idx_1 / rtU.Vbus + 0.5) * 4199.0;
+    rtDW.Gain3[2] = (-rtb_eit / rtU.Vbus + 0.5) * 4199.0;
 }
 
 void FOC_CURRENT_step(void)
 {
-    VectorAB_T local_gy;
-    VectorDQ_T local_b;
-    VectorDQ_T local_e;
-    VectorUVW_T local_l;
-    real_T local_[2];
-    local_[0] = sin(g_m.g_f_e);
-    local_[1] = cos(g_m.g_f_e);
-    local_l.s64_u = g_m.g_f_a;
-    local_l.s64_v = g_m.g_f_o;
-    local_l.s64_w = g_m.g_f_hk;
-    ClarkeTransform(&local_l, &local_gy);
-    ParkTransform(&local_gy, &local_[0], &local_e);
-    CurrentLoopDQ(g_m.g_f_j, local_e.s64_d, g_m.g_f_h, local_e.s64_q,
-                  0.24527670483636954, 221.54511393115223, 0.24527670483636954,
-                  221.54511393115223, &local_b);
-    InverseParkTransform(&local_b, &local_[0], &g_l5.g_f_p);
-    t_p();
-    g_ho.g_f_f = g_l5.g_f_b[0];
-    g_ho.g_f_i = g_l5.g_f_b[1];
-    g_ho.g_f_h = g_l5.g_f_b[2];
+    VectorAB_T rtb_ClarkeTransform;
+    VectorDQ_T rtb_ParkTransform;
+    VectorDQ_T rtb_currentLoopDQ;
+    VectorUVW_T rtb_BusConversion_InsertedFor_C;
+    real_T rtb_TmpSignalConversionAtParkTr[2];
+    rtb_TmpSignalConversionAtParkTr[0] = sin(rtU.theta);
+    rtb_TmpSignalConversionAtParkTr[1] = cos(rtU.theta);
+    rtb_BusConversion_InsertedFor_C.s64_u = rtU.s64_u;
+    rtb_BusConversion_InsertedFor_C.s64_v = rtU.s64_v;
+    rtb_BusConversion_InsertedFor_C.s64_w = rtU.s64_w;
+    ClarkeTransform(&rtb_BusConversion_InsertedFor_C, &rtb_ClarkeTransform);
+    ParkTransform(&rtb_ClarkeTransform, &rtb_TmpSignalConversionAtParkTr[0],
+                  &rtb_ParkTransform);
+    CurrentLoopDQ(rtU.IRefD, rtb_ParkTransform.s64_d, rtU.IRefQ,
+                  rtb_ParkTransform.s64_q, 0.24527670483636954,
+                  221.54511393115223, 0.24527670483636954, 221.54511393115223,
+                  &rtb_currentLoopDQ);
+    InverseParkTransform(&rtb_currentLoopDQ, &rtb_TmpSignalConversionAtParkTr[0],
+                         &rtDW.invpark);
+    SVPWM1();
+    rtY.tAout = rtDW.Gain3[0];
+    rtY.tBout = rtDW.Gain3[1];
+    rtY.tCout = rtDW.Gain3[2];
 }
 
 void FOC_CURRENT_initialize(void)
