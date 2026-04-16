@@ -2,7 +2,7 @@
 ## Makefile generated for component 'FOC_CURRENT'. 
 ## 
 ## Makefile     : FOC_CURRENT.mk
-## Generated on : Fri Apr 10 15:55:55 2026
+## Generated on : Thu Apr 16 13:09:24 2026
 ## Final product: $(RELATIVE_PATH_TO_ANCHOR)\FOC_CURRENT.exe
 ## Product type : executable
 ## 
@@ -183,7 +183,7 @@ DEFINES = $(DEFINES_BUILD_ARGS) $(DEFINES_CUSTOM) $(DEFINES_OPTS) $(DEFINES_STAN
 ## SOURCE FILES
 ###########################################################################
 
-SRCS = $(START_DIR)\FOC_CURRENT_ert_rtw\FOC_CURRENT.c $(START_DIR)\jscl_clarke.c
+SRCS = $(START_DIR)\FOC_CURRENT_ert_rtw\FOC_CURRENT.c $(START_DIR)\jscl_clarke.c $(START_DIR)\jscl_park.c
 
 MAIN_SRC = $(START_DIR)\FOC_CURRENT_ert_rtw\ert_main.c
 
@@ -193,7 +193,7 @@ ALL_SRCS = $(SRCS) $(MAIN_SRC)
 ## OBJECTS
 ###########################################################################
 
-OBJS = FOC_CURRENT.obj jscl_clarke.obj
+OBJS = FOC_CURRENT.obj jscl_clarke.obj jscl_park.obj
 
 MAIN_OBJ = ert_main.obj
 
@@ -424,6 +424,10 @@ ert_main.obj : "$(START_DIR)\FOC_CURRENT_ert_rtw\ert_main.c"
 
 jscl_clarke.obj : "$(START_DIR)\jscl_clarke.c"
 	$(CC) $(CFLAGS) -Fo"$@" "$(START_DIR)\jscl_clarke.c"
+
+
+jscl_park.obj : "$(START_DIR)\jscl_park.c"
+	$(CC) $(CFLAGS) -Fo"$@" "$(START_DIR)\jscl_park.c"
 
 
 ###########################################################################
