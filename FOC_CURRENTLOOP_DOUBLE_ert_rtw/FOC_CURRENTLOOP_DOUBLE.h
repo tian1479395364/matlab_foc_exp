@@ -8,40 +8,37 @@
 #include "jscl_transform.h"
 #include <math.h>
 
-typedef struct g_ty_tag_RTM g_ty_RT_MODEL;
+typedef struct tag_RTM RT_MODEL;
 
 #include "jscl_clarke.h"
 #include "jscl_park.h"
 
 typedef struct {
-    VectorAB_T g_f_j;
-    real_T g_f_bz[3];
-    real_T g_f_i;
-    real_T g_f_b;
-    real_T g_f_bl;
-    real_T g_f_k;
-    real_T g_f_p;
-    real_T g_f_c;
-    real_T g_f_l;
-    real_T g_f_i_m;
-    real_T g_f_h;
-    real_T g_f_cb;
-    real_T g_f_k_c;
+    VectorAB_T invpark;
+    real_T PWM[3];
+    real_T RateTransition_Buffer0[3];
+    real_T Merge;
+    real_T RateTransition7;
+    real_T IRefQ;
+    real_T DiscreteTimeIntegrator3_DSTATE;
+    real_T UnitDelay_DSTATE;
+    real_T DiscreteTimeIntegrator3_DSTAT_p;
+    real_T DiscreteTimeIntegrator_DSTATE;
     struct {
         int_T PrevIndex;
-    } g_f_em;
+    } fromWS_Signal1_IWORK;
 
     struct {
         void *TimePtr;
         void *DataPtr;
         void *RSimInfoPtr;
-    } g_f_e2;
+    } fromWS_Signal1_PWORK;
 
-    uint8_T g_f_lw;
-    uint8_T g_f_o;
-} g_ty_DW;
+    uint8_T DiscreteTimeIntegrator3_IC_LOAD;
+    uint8_T DiscreteTimeIntegrator3_IC_LO_l;
+} DW;
 
-struct g_ty_tag_RTM {
+struct tag_RTM {
     struct {
         uint32_T clockTick1;
         struct {
@@ -50,10 +47,12 @@ struct g_ty_tag_RTM {
     } Timing;
 };
 
-extern g_ty_DW g_l5;
+extern DW rtDW;
+extern VectorUVW_T measureCureent_s;
+extern real_T s16_PwmOnTicks[3];
 extern void FOC_CURRENTLOOP_DOUBLE_initialize(void);
 extern void FOC_CURRENTLOOP_DOUBLE_step(void);
-extern g_ty_RT_MODEL *const g_j;
+extern RT_MODEL *const rtM;
 
 #endif
 

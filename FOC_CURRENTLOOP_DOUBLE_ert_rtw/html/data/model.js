@@ -1,0 +1,1 @@
+var modelInfo = {model:"FOC_CURRENTLOOP_DOUBLE"};var modelHierarchy=[{model:"FOC_CURRENTLOOP_DOUBLE",relativePath:"_internal.html",parent:"null"},];var AddCode = true;
