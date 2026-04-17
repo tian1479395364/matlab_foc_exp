@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[103, 13, 1514, 953]</P>
+  <P Name="ZoomFactor">135</P>
+  <Block BlockType="Inport" Name="theta" SID="707">
+    <P Name="Position">[20, 58, 50, 72]</P>
+    <P Name="ZOrder">297</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">theta</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Mux" Name="Mux" SID="708">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[220, 46, 225, 84]</P>
+    <P Name="ZOrder">296</P>
+    <P Name="Inputs">2</P>
+    <P Name="DisplayOption">bar</P>
+  </Block>
+  <Block BlockType="Trigonometry" Name="SinCos" SID="709">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[145, 46, 175, 84]</P>
+    <P Name="ZOrder">295</P>
+    <P Name="Operator">sincos</P>
+  </Block>
+  <Block BlockType="Outport" Name="sin_cos" SID="710">
+    <P Name="Position">[330, 58, 360, 72]</P>
+    <P Name="ZOrder">298</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">707#out:1</P>
+    <P Name="Dst">709#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">709#out:2</P>
+    <P Name="Dst">708#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">709#out:1</P>
+    <P Name="Dst">708#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">708#out:1</P>
+    <P Name="Dst">710#in:1</P>
+  </Line>
+</System>

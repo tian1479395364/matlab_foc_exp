@@ -1,0 +1,573 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="ZoomFactor">80</P>
+  <Block BlockType="Inport" Name="y1" SID="791">
+    <P Name="Position">[90, 233, 120, 247]</P>
+    <P Name="ZOrder">49198</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="y2" SID="792">
+    <P Name="Position">[90, 348, 120, 362]</P>
+    <P Name="ZOrder">49199</P>
+    <P Name="Port">2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="i_alpha" SID="793">
+    <P Name="Position">[-85, 43, -55, 57]</P>
+    <P Name="ZOrder">49197</P>
+    <P Name="Port">3</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="i_beta" SID="794">
+    <P Name="Position">[-85, 103, -55, 117]</P>
+    <P Name="ZOrder">49200</P>
+    <P Name="Port">4</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add" SID="795">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[175, 219, 200, 306]</P>
+    <P Name="ZOrder">24556</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add1" SID="796">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[175, 334, 200, 421]</P>
+    <P Name="ZOrder">24557</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add2" SID="797">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[345, 21, 380, 199]</P>
+    <P Name="ZOrder">49189</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">--+</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="798">
+    <P Name="Position">[165, 155, 195, 185]</P>
+    <P Name="ZOrder">49190</P>
+    <P Name="Value">Flux</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="From" Name="From" SID="799">
+    <P Name="Position">[-85, -4, -45, 14]</P>
+    <P Name="ZOrder">49172</P>
+    <P Name="BackgroundColor">magenta</P>
+    <P Name="GotoTag">x1_hat</P>
+  </Block>
+  <Block BlockType="From" Name="From1" SID="800">
+    <P Name="Position">[-85, 156, -45, 174]</P>
+    <P Name="ZOrder">49173</P>
+    <P Name="BackgroundColor">[1.000000, 0.411765, 0.160784]</P>
+    <P Name="GotoTag">x2_hat</P>
+  </Block>
+  <Block BlockType="From" Name="From2" SID="801">
+    <P Name="Position">[415, 251, 485, 269]</P>
+    <P Name="ZOrder">49210</P>
+    <P Name="BackgroundColor">[0.074510, 0.623529, 1.000000]</P>
+    <P Name="GotoTag">eta_x1_hat</P>
+  </Block>
+  <Block BlockType="From" Name="From3" SID="802">
+    <P Name="Position">[415, 286, 485, 304]</P>
+    <P Name="ZOrder">49211</P>
+    <P Name="BackgroundColor">green</P>
+    <P Name="GotoTag">eta_x2_hat</P>
+  </Block>
+  <Block BlockType="From" Name="From4" SID="803">
+    <P Name="Position">[-95, 263, -30, 277]</P>
+    <P Name="ZOrder">49212</P>
+    <P Name="GotoTag">eta_res</P>
+  </Block>
+  <Block BlockType="From" Name="From5" SID="804">
+    <P Name="Position">[-100, 291, -30, 309]</P>
+    <P Name="ZOrder">49213</P>
+    <P Name="BackgroundColor">[0.074510, 0.623529, 1.000000]</P>
+    <P Name="GotoTag">eta_x1_hat</P>
+  </Block>
+  <Block BlockType="From" Name="From6" SID="805">
+    <P Name="Position">[-100, 378, -35, 392]</P>
+    <P Name="ZOrder">49215</P>
+    <P Name="GotoTag">eta_res</P>
+  </Block>
+  <Block BlockType="From" Name="From7" SID="806">
+    <P Name="Position">[-95, 406, -25, 424]</P>
+    <P Name="ZOrder">49216</P>
+    <P Name="BackgroundColor">green</P>
+    <P Name="GotoTag">eta_x2_hat</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="807">
+    <P Name="Position">[90, 270, 120, 300]</P>
+    <P Name="ZOrder">24560</P>
+    <P Name="Gain">Gamma</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="808">
+    <P Name="Position">[95, 385, 125, 415]</P>
+    <P Name="ZOrder">24561</P>
+    <P Name="Gain">Gamma</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain2" SID="809">
+    <P Name="Position">[5, 35, 35, 65]</P>
+    <P Name="ZOrder">49184</P>
+    <P Name="Gain">Ls</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain3" SID="810">
+    <P Name="Position">[5, 95, 35, 125]</P>
+    <P Name="ZOrder">49186</P>
+    <P Name="Gain">Ls</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto" SID="811">
+    <P Name="Position">[150, 12, 210, 28]</P>
+    <P Name="ZOrder">49207</P>
+    <P Name="BackgroundColor">[0.074510, 0.623529, 1.000000]</P>
+    <P Name="GotoTag">eta_x1_hat</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto1" SID="812">
+    <P Name="Position">[150, 72, 210, 88]</P>
+    <P Name="ZOrder">49208</P>
+    <P Name="BackgroundColor">green</P>
+    <P Name="GotoTag">eta_x2_hat</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto2" SID="813">
+    <P Name="Position">[340, 372, 380, 388]</P>
+    <P Name="ZOrder">49205</P>
+    <P Name="BackgroundColor">[1.000000, 0.411765, 0.160784]</P>
+    <P Name="GotoTag">x2_hat</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto3" SID="814">
+    <P Name="Position">[340, 255, 380, 275]</P>
+    <P Name="ZOrder">49206</P>
+    <P Name="BackgroundColor">magenta</P>
+    <P Name="GotoTag">x1_hat</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto4" SID="815">
+    <P Name="Position">[460, 102, 520, 118]</P>
+    <P Name="ZOrder">49209</P>
+    <P Name="GotoTag">eta_res</P>
+  </Block>
+  <Block BlockType="DiscreteIntegrator" Name="Integrator" SID="816">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[270, 250, 300, 280]</P>
+    <P Name="ZOrder">24587</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="OutDataTypeStr">double</P>
+    <P Name="ICPrevOutput">DiscIntNeverNeededParam</P>
+    <P Name="ICPrevScaledInput">DiscIntNeverNeededParam</P>
+    <Mask>
+      <Type>DiscretizedDiscreteIntegrator</Type>
+      <Display/>
+      <Initialization>%zoh</Initialization>
+    </Mask>
+  </Block>
+  <Block BlockType="DiscreteIntegrator" Name="Integrator1" SID="817">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[270, 365, 300, 395]</P>
+    <P Name="ZOrder">24589</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="OutDataTypeStr">double</P>
+    <P Name="ICPrevOutput">DiscIntNeverNeededParam</P>
+    <P Name="ICPrevScaledInput">DiscIntNeverNeededParam</P>
+    <Mask>
+      <Type>DiscretizedDiscreteIntegrator</Type>
+      <Display/>
+      <Initialization>%zoh</Initialization>
+    </Mask>
+  </Block>
+  <Block BlockType="Math" Name="Math&#xA;Function" SID="818">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[250, 35, 280, 65]</P>
+    <P Name="ZOrder">49187</P>
+    <P Name="Operator">magnitude^2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Math" Name="Math&#xA;Function1" SID="819">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[250, 95, 280, 125]</P>
+    <P Name="ZOrder">49188</P>
+    <P Name="Operator">magnitude^2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Math" Name="Math&#xA;Function2" SID="820">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[250, 155, 280, 185]</P>
+    <P Name="ZOrder">49217</P>
+    <P Name="Operator">magnitude^2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Product" Name="Product" SID="821">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[15, 257, 45, 313]</P>
+    <P Name="ZOrder">49160</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Product" Name="Product1" SID="822">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[15, 372, 45, 428]</P>
+    <P Name="ZOrder">49161</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="823">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[60, 40, 80, 60]</P>
+    <P Name="ZOrder">49183</P>
+    <P Name="Inputs">+-|</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="824">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[60, 100, 80, 120]</P>
+    <P Name="ZOrder">49185</P>
+    <P Name="Inputs">|-+</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Outport" Name="eta_x1_hat" SID="825">
+    <P Name="Position">[540, 253, 570, 267]</P>
+    <P Name="ZOrder">49203</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Outport" Name="eta_x2_hat" SID="826">
+    <P Name="Position">[540, 288, 570, 302]</P>
+    <P Name="ZOrder">49204</P>
+    <P Name="Port">2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">791#out:1</P>
+    <P Name="Dst">795#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">808#out:1</P>
+    <P Name="Dst">796#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">822#out:1</P>
+    <P Name="Dst">808#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">823#out:1</P>
+    <P Name="Points">[40, 0]</P>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Points">[0, -30]</P>
+      <P Name="Dst">811#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Dst">818#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">821#out:1</P>
+    <P Name="Dst">807#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">807#out:1</P>
+    <P Name="Dst">795#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">795#out:1</P>
+    <P Name="Dst">816#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">796#out:1</P>
+    <P Name="Dst">817#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">824#out:1</P>
+    <P Name="Points">[41, 0]</P>
+    <Branch>
+      <P Name="ZOrder">12</P>
+      <P Name="Dst">819#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">13</P>
+      <P Name="Points">[0, -30]</P>
+      <P Name="Dst">812#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">14</P>
+    <P Name="Src">817#out:1</P>
+    <P Name="Dst">813#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">15</P>
+    <P Name="Src">792#out:1</P>
+    <P Name="Dst">796#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">16</P>
+    <P Name="Src">816#out:1</P>
+    <P Name="Dst">814#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">17</P>
+    <P Name="Src">794#out:1</P>
+    <P Name="Dst">810#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">18</P>
+    <P Name="Src">793#out:1</P>
+    <P Name="Dst">809#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">800#out:1</P>
+    <P Name="Points">[110, 0]</P>
+    <P Name="Dst">824#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">20</P>
+    <P Name="Src">810#out:1</P>
+    <P Name="Dst">824#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">21</P>
+    <P Name="Src">819#out:1</P>
+    <P Name="Dst">797#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">22</P>
+    <P Name="Src">809#out:1</P>
+    <P Name="Dst">823#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">23</P>
+    <P Name="Src">799#out:1</P>
+    <P Name="Points">[110, 0]</P>
+    <P Name="Dst">823#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">24</P>
+    <P Name="Src">818#out:1</P>
+    <P Name="Dst">797#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">25</P>
+    <P Name="Src">797#out:1</P>
+    <P Name="Dst">815#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">26</P>
+    <P Name="Src">801#out:1</P>
+    <P Name="Dst">825#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">27</P>
+    <P Name="Src">802#out:1</P>
+    <P Name="Dst">826#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">28</P>
+    <P Name="Src">803#out:1</P>
+    <P Name="Dst">821#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">29</P>
+    <P Name="Src">804#out:1</P>
+    <P Name="Dst">821#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">30</P>
+    <P Name="Src">805#out:1</P>
+    <P Name="Dst">822#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">31</P>
+    <P Name="Src">806#out:1</P>
+    <P Name="Dst">822#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">32</P>
+    <P Name="Src">798#out:1</P>
+    <P Name="Dst">820#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">33</P>
+    <P Name="Src">820#out:1</P>
+    <P Name="Dst">797#in:3</P>
+  </Line>
+  <Annotation SID="835">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
+&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;&lt;/head&gt;&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;img src=&quot;[$unpackedFolder]/simulink/resources/mwimg_d445320d-7c8a-4b42-925d-5ac5218e05ee.png&quot; /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</P>
+    <P Name="Position">[-337, -4, -135, 231]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+  <Annotation SID="834">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\hat{x}_1$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[317, 236, 332, 255]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.717647, 0.274510, 1.000000]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-2</P>
+  </Annotation>
+  <Annotation SID="833">
+    <P Name="Position">[-108, 216, 631, 444]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="FixedHeight">on</P>
+    <P Name="FixedWidth">on</P>
+    <P Name="ForegroundColor">[0.901961, 0.901961, 1.000000]</P>
+    <P Name="BackgroundColor">[0.901961, 0.901961, 1.000000]</P>
+    <P Name="DropShadow">on</P>
+    <P Name="AnnotationType">area_annotation</P>
+    <P Name="ZOrder">2</P>
+    <P Name="FontSize">12</P>
+  </Annotation>
+  <Annotation SID="832">
+    <P Name="Position">[-109, -9, 633, 213]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="FixedHeight">on</P>
+    <P Name="FixedWidth">on</P>
+    <P Name="ForegroundColor">[0.901961, 0.901961, 1.000000]</P>
+    <P Name="BackgroundColor">[0.901961, 0.901961, 1.000000]</P>
+    <P Name="DropShadow">on</P>
+    <P Name="AnnotationType">area_annotation</P>
+    <P Name="ZOrder">1</P>
+    <P Name="FontSize">12</P>
+  </Annotation>
+  <Annotation SID="831">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\frac{d{\hat{x_1}}}{dt}$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[225, 227, 245, 260]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.929412, 0.694118, 0.125490]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-5</P>
+  </Annotation>
+  <Annotation SID="830">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\frac{d{\hat{x_2}}}{dt}$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[225, 348, 245, 381]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.929412, 0.694118, 0.125490]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-6</P>
+  </Annotation>
+  <Annotation SID="829">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\frac{\gamma}{2}$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[127, 414, 137, 443]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-7</P>
+  </Annotation>
+  <Annotation SID="828">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\frac{\gamma}{2}$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[120, 297, 130, 326]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.929412, 0.694118, 0.125490]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-8</P>
+  </Annotation>
+  <Annotation SID="827">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\psi_f^2$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[129, 161, 146, 181]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.929412, 0.694118, 0.125490]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-9</P>
+  </Annotation>
+</System>

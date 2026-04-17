@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlCache/19700101">
+  <slcache.Information type="slcache.Information" uuid="84fad95c-38e5-448f-bc0d-7deafadf889a">
+    <coderTargets type="slcache.CoderTarget" uuid="5f8bf77b-e885-40ad-802f-e27b4c71aff3">
+      <STFName>ert</STFName>
+      <folderConfig>ModelSpecific</folderConfig>
+      <genCodeOnly>true</genCodeOnly>
+      <targetMapKey>CODER_TOP_ert</targetMapKey>
+      <targetSuffix>ert</targetSuffix>
+      <checksum>vNL/pHmHN40XnptFEpfCsYUVNPgDdcp3vNd7eebG1NomusSgjiE+pD37FlyJGCymM+HLpGSkqyYF2VbFx7ZatQ==</checksum>
+      <compiler>Microsoft Visual C++ 2022 (C) v17.0</compiler>
+      <mode>CODER_TOP</mode>
+    </coderTargets>
+    <modelName>FOC_CURRENTLOOP_DOUBLE</modelName>
+    <platform>win64</platform>
+    <release>R2024a</release>
+    <slprjVersion>24.1_093</slprjVersion>
+  </slcache.Information>
+</MF0>

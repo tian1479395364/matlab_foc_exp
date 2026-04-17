@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlCache/19700101">
+  <slcache.PartAttributes type="slcache.PartAttributes" uuid="058b2e59-545a-4483-88cb-23d7469ee350">
+    <partMap type="slcache.PartInfo" uuid="9cd64342-790f-48ce-bf58-0d44ea57c284">
+      <origPartName>/R2024a/win64/coderTop/coderTopRef_ert_R2024a_win64/slprj/ert/FOC_CURRENTLOOP_DOUBLE/tmwinternal/scv</origPartName>
+      <storedPartName>/R2024a/win64/coderTop/coderTopRef_ert_R2024a_win64/slprj/ert/FOC_CURRENTLOOP_DOUBLE/tmwinternal/scv.packagedMdlMisc</storedPartName>
+    </partMap>
+    <partMap type="slcache.PartInfo" uuid="8ce2bfda-e828-41ba-b18c-3414f40e8594">
+      <origPartName>/R2024a/win64/coderTop/coderTop_ert_R2024a_win64/FOC_CURRENTLOOP_DOUBLE_ert_rtw/tmwinternal/tr</origPartName>
+      <storedPartName>/R2024a/win64/coderTop/coderTop_ert_R2024a_win64/FOC_CURRENTLOOP_DOUBLE_ert_rtw/tmwinternal/tr.packagedMdlMisc</storedPartName>
+    </partMap>
+  </slcache.PartAttributes>
+</MF0>

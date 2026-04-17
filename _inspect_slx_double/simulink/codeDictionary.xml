@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" defaultPackage="coderdictionary.data" packageUris="http://schema.mathworks.com/mf0/coderdictionary_data/R2024a http://schema.mathworks.com/mf0/coderdictionary_data/R2024a/coderdictionary.data">
+  <Container type="Container" uuid="af640711-0342-4068-b05c-f9ff6b902df9">
+    <ReferencedContainers type="ReferenceContainerInfo" uuid="0ba9822d-7add-41a4-8ffd-8fa63ad8f6e6">
+      <Name>SimulinkBuiltin</Name>
+    </ReferencedContainers>
+    <ReferencedContainers type="ReferenceContainerInfo" uuid="e4ae7a34-8709-41ea-97ed-25a74ee1c4d7">
+      <Name>Simulink</Name>
+    </ReferencedContainers>
+    <CDefinitions type="C_Definitions" uuid="5b1a31b5-67da-4761-8a36-d7de4d668de7">
+      <SoftwareComponentTemplates type="SoftwareComponentTemplate" uuid="71f7eccb-4bcd-4528-a50b-2592afbd039b">
+        <Name>CODER_DICTIONARY</Name>
+        <Constants type="DataConfiguration" uuid="399dfb47-ce57-4a1c-af2e-af11b03a7498">
+          <category>Constants</category>
+        </Constants>
+        <DataTransfers type="DataConfiguration" uuid="c4ba462f-315f-401f-8bac-4524ccd3af1e">
+          <category>DataTransfers</category>
+        </DataTransfers>
+        <Execution type="FunctionConfiguration" uuid="7af76b8f-05a4-41a0-a672-f42e8306186e"/>
+        <GlobalDataStores type="DataConfiguration" uuid="855e63ab-6ca8-4e2e-aab4-b924c5088c2d">
+          <category>GlobalDataStores</category>
+        </GlobalDataStores>
+        <GlobalParameters type="DataConfiguration" uuid="1b481585-27c4-4d13-bba4-ee9b2a900040">
+          <category>GlobalParameters</category>
+        </GlobalParameters>
+        <InitializeTerminate type="FunctionConfiguration" uuid="d51b5c8d-093d-48b6-aa6e-ef1f66d9e7c6"/>
+        <Inports type="DataConfiguration" uuid="08710ba2-61fd-4e78-8d81-668be80db6dc">
+          <category>Inports</category>
+        </Inports>
+        <InternalData type="DataConfiguration" uuid="362c7dd6-8c87-4bd3-b754-2bed6c4eb2b4">
+          <category>InternalData</category>
+        </InternalData>
+        <LocalParameters type="DataConfiguration" uuid="2bd97a2d-aa60-470e-ab3f-f6c03a4035ef">
+          <category>LocalParameters</category>
+        </LocalParameters>
+        <ModelData type="DataConfiguration" uuid="6349ee1d-ad68-42d7-ba83-92622fbe7de2">
+          <category>ModelData</category>
+        </ModelData>
+        <Outports type="DataConfiguration" uuid="384c40a3-bc17-4fe9-a103-73b850cabe31">
+          <category>Outports</category>
+        </Outports>
+        <ParameterArguments type="DataConfiguration" uuid="db8497dd-7190-4287-81da-830802b8b223">
+          <category>ParameterArguments</category>
+        </ParameterArguments>
+        <SharedLocalDataStores type="DataConfiguration" uuid="b3892f19-2b90-49ac-98d9-2df8a2d5552b">
+          <category>SharedLocalDataStores</category>
+        </SharedLocalDataStores>
+        <SharedUtility type="FunctionConfiguration" uuid="9bdbc016-72a0-495e-9131-1f9a2ff38336"/>
+      </SoftwareComponentTemplates>
+      <packageChecksums type="PackageChecksum" uuid="99e1ee1e-a2b9-4a6a-9a15-b1d331e0ee97">
+        <Checksum>jujAaT/ish0mQrShkVxewhiWl3vJng9KdQyUrog19b6DBTxsSXEsHCtRAfVQKjsatggN8+VoqMbyj0a5OiNNow==</Checksum>
+        <ChecksumSource>csc_registration.p</ChecksumSource>
+        <PackageName>Simulink</PackageName>
+      </packageChecksums>
+    </CDefinitions>
+  </Container>
+</MF0>

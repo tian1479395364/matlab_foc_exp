@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="ZoomFactor">60</P>
+  <Block BlockType="Inport" Name="eta_x1_hat" SID="732">
+    <P Name="Position">[-160, 78, -130, 92]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="eta_x2_hat" SID="733">
+    <P Name="Position">[-160, 203, -130, 217]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="Port">2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="734">
+    <P Name="Position">[40, 160, 70, 190]</P>
+    <P Name="ZOrder">24661</P>
+    <P Name="Value">pll_omega</P>
+    <P Name="OutDataTypeStr">double</P>
+    <P Name="SampleTime">-1</P>
+  </Block>
+  <Block BlockType="Trigonometry" Name="Cos" SID="735">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[460, 210, 490, 240]</P>
+    <P Name="ZOrder">285</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="BlockMirror">on</P>
+    <P Name="NameLocation">left</P>
+    <P Name="Operator">cos</P>
+  </Block>
+  <Block BlockType="Reference" Name="Discrete PID Controller" SID="736">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[225, 139, 265, 211]</P>
+    <P Name="ZOrder">284</P>
+    <P Name="LibraryVersion">8.12</P>
+    <P Name="SourceBlock">slpidlib/PID Controller</P>
+    <P Name="SourceType">PID 1dof</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">on</P>
+      <P Name="Controller">PI</P>
+      <P Name="Form">Parallel</P>
+      <P Name="TimeDomain">Discrete-time</P>
+      <P Name="UseExternalTs">off</P>
+      <P Name="SampleTime">-1</P>
+      <P Name="IntegratorMethod">Forward Euler</P>
+      <P Name="FilterMethod">Forward Euler</P>
+      <P Name="ControllerParametersSource">external</P>
+      <P Name="P">2*0.707*1650</P>
+      <P Name="I">1650*1650</P>
+      <P Name="UseKiTs">off</P>
+      <P Name="D">0</P>
+      <P Name="UseExternalDerivativeSource">off</P>
+      <P Name="N">100</P>
+      <P Name="UseFilter">on</P>
+      <P Name="TunerSelectOption">Transfer Function Based (PID Tuner App)</P>
+      <P Name="ZeroCross">off</P>
+      <P Name="InitialConditionSource">internal</P>
+      <P Name="InitialConditionForIntegrator">0</P>
+      <P Name="InitialConditionForFilter">0</P>
+      <P Name="DifferentiatorICPrevScaledInput">0</P>
+      <P Name="ExternalReset">none</P>
+      <P Name="IgnoreLimit">off</P>
+      <P Name="TrackingMode">off</P>
+      <P Name="Kt">1</P>
+      <P Name="LimitOutput">on</P>
+      <P Name="SatLimitsSource">internal</P>
+      <P Name="UpperSaturationLimit">2500*2*pi*PolePairs/60</P>
+      <P Name="LowerSaturationLimit">-2500*2*pi*PolePairs/60</P>
+      <P Name="LinearizeAsGain">off</P>
+      <P Name="AntiWindupMode">clamping</P>
+      <P Name="Kb">1</P>
+      <P Name="LimitIntegrator">off</P>
+      <P Name="UpperIntegratorSaturationLimit">inf</P>
+      <P Name="LowerIntegratorSaturationLimit">-inf</P>
+      <P Name="RndMeth">Floor</P>
+      <P Name="SaturateOnIntegerOverflow">off</P>
+      <P Name="LockScale">off</P>
+      <P Name="PGainOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="PProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="POutMin">[]</P>
+      <P Name="POutMax">[]</P>
+      <P Name="IGainOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="IProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="IOutMin">[]</P>
+      <P Name="IOutMax">[]</P>
+      <P Name="DGainOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DOutMin">[]</P>
+      <P Name="DOutMax">[]</P>
+      <P Name="NGainOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="NProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="NOutMin">[]</P>
+      <P Name="NOutMax">[]</P>
+      <P Name="SumOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumOutMin">[]</P>
+      <P Name="SumOutMax">[]</P>
+      <P Name="SaturationOutDataTypeStr">Inherit: Same as input</P>
+      <P Name="SaturationOutMin">[]</P>
+      <P Name="SaturationOutMax">[]</P>
+      <P Name="PParamDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="PParamMin">[]</P>
+      <P Name="PParamMax">[]</P>
+      <P Name="IParamDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="IParamMin">[]</P>
+      <P Name="IParamMax">[]</P>
+      <P Name="DParamDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DParamMin">[]</P>
+      <P Name="DParamMax">[]</P>
+      <P Name="NParamDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="NParamMin">[]</P>
+      <P Name="NParamMax">[]</P>
+      <P Name="KbParamDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="KbParamMin">[]</P>
+      <P Name="KbParamMax">[]</P>
+      <P Name="KtParamDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="KtParamMin">[]</P>
+      <P Name="KtParamMax">[]</P>
+      <P Name="KbOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="KbOutMin">[]</P>
+      <P Name="KbOutMax">[]</P>
+      <P Name="KtOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="KtOutMin">[]</P>
+      <P Name="KtOutMax">[]</P>
+      <P Name="IntegratorOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="IntegratorOutMin">[]</P>
+      <P Name="IntegratorOutMax">[]</P>
+      <P Name="FilterOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="FilterOutMin">[]</P>
+      <P Name="FilterOutMax">[]</P>
+      <P Name="SumI1OutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI1OutMin">[]</P>
+      <P Name="SumI1OutMax">[]</P>
+      <P Name="SumI2OutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI2OutMin">[]</P>
+      <P Name="SumI2OutMax">[]</P>
+      <P Name="SumI3OutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI3OutMin">[]</P>
+      <P Name="SumI3OutMax">[]</P>
+      <P Name="SumI4OutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI4OutMin">[]</P>
+      <P Name="SumI4OutMax">[]</P>
+      <P Name="SumDOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumDOutMin">[]</P>
+      <P Name="SumDOutMax">[]</P>
+      <P Name="SumAccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI1AccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI2AccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI3AccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumI4AccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumDAccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DifferentiatorOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DifferentiatorOutMin">[]</P>
+      <P Name="DifferentiatorOutMax">[]</P>
+      <P Name="FilterDiffNumProductOutputDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="FilterDiffDenProductOutputDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="FilterDiffNumAccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="FilterDiffDenAccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="FilterDiffOutCoefDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="FilterDiffOutCoefMin">[]</P>
+      <P Name="FilterDiffOutCoefMax">[]</P>
+      <P Name="ReciprocalOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="ReciprocalOutMin">[]</P>
+      <P Name="ReciprocalOutMax">[]</P>
+      <P Name="SumDenOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumDenOutMin">[]</P>
+      <P Name="SumDenOutMax">[]</P>
+      <P Name="SumNumOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumNumOutMin">[]</P>
+      <P Name="SumNumOutMax">[]</P>
+      <P Name="SumDenAccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="SumNumAccumDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DivideOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="DivideOutMin">[]</P>
+      <P Name="DivideOutMax">[]</P>
+      <P Name="UdiffTsProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="UdiffTsProdOutMin">[]</P>
+      <P Name="UdiffTsProdOutMax">[]</P>
+      <P Name="NTsProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="NTsProdOutMin">[]</P>
+      <P Name="NTsProdOutMax">[]</P>
+      <P Name="UintegralTsProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="UintegralTsProdOutMin">[]</P>
+      <P Name="UintegralTsProdOutMax">[]</P>
+      <P Name="UngainTsProdOutDataTypeStr">Inherit: Inherit via internal rule</P>
+      <P Name="UngainTsProdOutMin">[]</P>
+      <P Name="UngainTsProdOutMax">[]</P>
+      <P Name="ClampingZeroOutDataTypeStr">Inherit: Inherit via back propagation</P>
+      <P Name="ClampingZeroOutMin">[]</P>
+      <P Name="ClampingZeroOutMax">[]</P>
+      <P Name="FilterDenConstantOutDataTypeStr">Inherit: Inherit via back propagation</P>
+      <P Name="FilterDenConstantOutMin">[]</P>
+      <P Name="FilterDenConstantOutMax">[]</P>
+      <P Name="PCopyOutDataTypeStr">Inherit: Inherit via back propagation</P>
+      <P Name="PCopyOutMin">[]</P>
+      <P Name="PCopyOutMax">[]</P>
+      <P Name="NCopyOutDataTypeStr">Inherit: Inherit via back propagation</P>
+      <P Name="NCopyOutMin">[]</P>
+      <P Name="NCopyOutMax">[]</P>
+      <P Name="IntegratorContinuousStateAttributes">&apos;&apos;</P>
+      <P Name="IntegratorStateMustResolveToSignalObject">off</P>
+      <P Name="IntegratorRTWStateStorageClass">Auto</P>
+      <P Name="FilterContinuousStateAttributes">&apos;&apos;</P>
+      <P Name="FilterStateMustResolveToSignalObject">off</P>
+      <P Name="FilterRTWStateStorageClass">Auto</P>
+      <P Name="ParallelPVariant">ExternalParameters</P>
+      <P Name="IdealPVariant">Disabled</P>
+      <P Name="IVariant">ExternalParameters</P>
+      <P Name="DVariant">Disabled</P>
+      <P Name="IntegratorVariant">Discrete</P>
+      <P Name="SatVariant">Enabled</P>
+      <P Name="AWVariant">DiscClampingParallel</P>
+      <P Name="PCopyVariant">Disabled</P>
+      <P Name="TRVariant">Disabled</P>
+      <P Name="FdbkBlocksVariant">Forward</P>
+      <P Name="IdealPFdbkVariant">Disabled</P>
+      <P Name="SatFdbkVariant">Disabled</P>
+      <P Name="DerivativeFilterVariant">Disabled</P>
+      <P Name="NVariant">Disabled</P>
+      <P Name="NCopyVariant">Disabled_SignalSpec</P>
+      <P Name="FilterICVariant">Disabled</P>
+      <P Name="IntegratorICVariant">InternalICs</P>
+      <P Name="ExternalResetVariant">Disabled</P>
+      <P Name="TRSumVariant">Passthrough</P>
+      <P Name="SumFdbkVariant">Disabled</P>
+      <P Name="SumVariant">Sum_PI</P>
+      <P Name="TsampFilterVariant">InternalTs</P>
+      <P Name="TsampNgainVariant">Passthrough</P>
+      <P Name="TsampIntegralVariant">Disabled_SignalSpec</P>
+      <P Name="ExternalSaturationOutDataTypeStr">Inherit: Same as second input</P>
+      <P Name="DerivativeSourceVariant">Disabled</P>
+      <P Name="InitialConditionSetting">Auto</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="737">
+    <P Name="Position">[120, 160, 150, 190]</P>
+    <P Name="ZOrder">24662</P>
+    <P Name="Gain">pll_xi</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Mux" Name="Mux" SID="738">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[560, 48, 565, 137]</P>
+    <P Name="ZOrder">24660</P>
+    <P Name="Inputs">2</P>
+    <P Name="DisplayOption">bar</P>
+  </Block>
+  <Block BlockType="Product" Name="Product" SID="739">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[-40, 62, -10, 93]</P>
+    <P Name="ZOrder">286</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Product" Name="Product1" SID="740">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[-40, 202, -10, 233]</P>
+    <P Name="ZOrder">287</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Product" Name="Product2" SID="741">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[120, 212, 150, 243]</P>
+    <P Name="ZOrder">24665</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Trigonometry" Name="Sin" SID="742">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[460, 90, 490, 120]</P>
+    <P Name="ZOrder">282</P>
+    <P Name="BlockRotation">270</P>
+    <P Name="NameLocation">right</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="743">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[5, 140, 25, 160]</P>
+    <P Name="ZOrder">288</P>
+    <P Name="Inputs">-|+</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="integrator" SID="744">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[345, 152, 405, 198]</P>
+    <P Name="ZOrder">24658</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">ObserverTheta</P>
+        <P Name="MustResolveToSignalObject">on</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_744"/>
+  </Block>
+  <Block BlockType="Outport" Name="sin_cos" SID="776">
+    <P Name="Position">[595, 88, 625, 102]</P>
+    <P Name="ZOrder">24659</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Outport" Name="omega_e_hat" SID="777">
+    <P Name="Position">[595, 313, 625, 327]</P>
+    <P Name="ZOrder">24666</P>
+    <P Name="Port">2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">736#out:1</P>
+    <P Name="Points">[41, 0]</P>
+    <Branch>
+      <P Name="ZOrder">2</P>
+      <P Name="Points">[0, 145]</P>
+      <P Name="Dst">777#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">3</P>
+      <P Name="Dst">744#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">739#out:1</P>
+    <P Name="Points">[20, 0]</P>
+    <P Name="Dst">743#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">740#out:1</P>
+    <P Name="Points">[20, 0]</P>
+    <P Name="Dst">743#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">743#out:1</P>
+    <P Name="Dst">736#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">735#out:1</P>
+    <P Name="Points">[0, 35]</P>
+    <Branch>
+      <P Name="ZOrder">8</P>
+      <P Name="Points">[-541, 0; 0, -55]</P>
+      <P Name="Dst">740#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">9</P>
+      <P Name="Points">[57, 0; 0, -165]</P>
+      <P Name="Dst">738#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">742#out:1</P>
+    <P Name="Points">[0, -15]</P>
+    <Branch>
+      <P Name="ZOrder">11</P>
+      <P Name="Dst">738#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">12</P>
+      <P Name="Points">[0, -32; -539, 0; 0, 32]</P>
+      <P Name="Dst">739#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">13</P>
+    <P Name="Src">738#out:1</P>
+    <P Name="Dst">776#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">ObserverTheta</P>
+    <P Name="ZOrder">14</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">744#out:1</P>
+    <P Name="Points">[65, 0]</P>
+    <Branch>
+      <P Name="ZOrder">15</P>
+      <P Name="Dst">735#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">16</P>
+      <P Name="Dst">742#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">17</P>
+    <P Name="Src">732#out:1</P>
+    <P Name="Dst">739#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">18</P>
+    <P Name="Src">733#out:1</P>
+    <P Name="Dst">740#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">737#out:1</P>
+    <P Name="Dst">736#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">20</P>
+    <P Name="Src">734#out:1</P>
+    <P Name="Points">[14, 0]</P>
+    <Branch>
+      <P Name="ZOrder">21</P>
+      <P Name="Points">[0, 45]</P>
+      <Branch>
+        <P Name="ZOrder">22</P>
+        <P Name="Points">[0, 15]</P>
+        <P Name="Dst">741#in:2</P>
+      </Branch>
+      <Branch>
+        <P Name="ZOrder">23</P>
+        <P Name="Dst">741#in:1</P>
+      </Branch>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">24</P>
+      <P Name="Dst">737#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">25</P>
+    <P Name="Src">741#out:1</P>
+    <P Name="Points">[29, 0; 0, -30]</P>
+    <P Name="Dst">736#in:3</P>
+  </Line>
+  <Annotation SID="778">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$\hat\theta_e$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[449, 141, 464, 162]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.717647, 0.274510, 1.000000]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+</System>

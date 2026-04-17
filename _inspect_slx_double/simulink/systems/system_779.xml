@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="ZoomFactor">60</P>
+  <Block BlockType="Inport" Name="i_alpha" SID="780">
+    <P Name="Position">[175, 73, 205, 87]</P>
+    <P Name="ZOrder">24599</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="u_alpha" SID="781">
+    <P Name="Position">[175, 123, 205, 137]</P>
+    <P Name="ZOrder">24600</P>
+    <P Name="Port">2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="i_beta" SID="782">
+    <P Name="Position">[175, 198, 205, 212]</P>
+    <P Name="ZOrder">24601</P>
+    <P Name="Port">3</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Inport" Name="u_beta" SID="783">
+    <P Name="Position">[175, 238, 205, 252]</P>
+    <P Name="ZOrder">24602</P>
+    <P Name="Port">4</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add4" SID="784">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[375, 57, 415, 153]</P>
+    <P Name="ZOrder">24574</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">-+</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Sum" Name="Add5" SID="785">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[375, 185, 415, 265]</P>
+    <P Name="ZOrder">24576</P>
+    <P Name="IconShape">rectangular</P>
+    <P Name="Inputs">-+</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain4" SID="786">
+    <P Name="Position">[275, 65, 305, 95]</P>
+    <P Name="ZOrder">24597</P>
+    <P Name="Gain">Rs</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain5" SID="787">
+    <P Name="Position">[275, 190, 305, 220]</P>
+    <P Name="ZOrder">24598</P>
+    <P Name="Gain">Rs</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Outport" Name="y1" SID="788">
+    <P Name="Position">[490, 98, 520, 112]</P>
+    <P Name="ZOrder">24603</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Outport" Name="y2" SID="789">
+    <P Name="Position">[490, 218, 520, 232]</P>
+    <P Name="ZOrder">24604</P>
+    <P Name="Port">2</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">785#out:1</P>
+    <P Name="Dst">789#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">786#out:1</P>
+    <P Name="Dst">784#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">787#out:1</P>
+    <P Name="Dst">785#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">783#out:1</P>
+    <P Name="Dst">785#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">782#out:1</P>
+    <P Name="Dst">787#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">784#out:1</P>
+    <P Name="Dst">788#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">780#out:1</P>
+    <P Name="Dst">786#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">781#out:1</P>
+    <P Name="Dst">784#in:2</P>
+  </Line>
+</System>

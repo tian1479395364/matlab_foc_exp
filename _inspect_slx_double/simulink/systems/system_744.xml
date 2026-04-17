@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -1088, 1935, -32]</P>
+  <P Name="ZoomFactor">412</P>
+  <Block BlockType="Inport" Name="x(k)" SID="745">
+    <P Name="Position">[20, 33, 50, 47]</P>
+    <P Name="ZOrder">24651</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="RangeLimit" SID="746">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[225, 23, 285, 57]</P>
+    <P Name="ZOrder">24653</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_746"/>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="771">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[155, 30, 175, 50]</P>
+    <P Name="ZOrder">24648</P>
+    <P Name="Inputs">|++</P>
+    <P Name="OutDataTypeStr">double</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">y(k)</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="Ts" SID="772">
+    <P Name="Position">[95, 25, 125, 55]</P>
+    <P Name="ZOrder">24647</P>
+    <P Name="Gain">TsFOC</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="UnitDelay" Name="Unit Delay" SID="773">
+    <P Name="Position">[325, 23, 360, 57]</P>
+    <P Name="ZOrder">24650</P>
+    <P Name="SampleTime">-1</P>
+    <P Name="HasFrameUpgradeWarning">on</P>
+  </Block>
+  <Block BlockType="Outport" Name="y(k-1)" SID="774">
+    <P Name="Position">[425, 33, 455, 47]</P>
+    <P Name="ZOrder">24652</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">745#out:1</P>
+    <P Name="Dst">772#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">772#out:1</P>
+    <P Name="Dst">771#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">y(k)</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">771#out:1</P>
+    <P Name="Dst">746#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">773#out:1</P>
+    <P Name="Points">[26, 0]</P>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Dst">774#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Points">[0, 85; -226, 0]</P>
+      <P Name="Dst">771#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">746#out:1</P>
+    <P Name="Dst">773#in:1</P>
+  </Line>
+  <Annotation SID="775">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta content=&quot;1&quot; name=&quot;qrichtext&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;&quot;&gt;$y(k)=x(k)*T_s+y(k-1)$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[185, -23, 307, -6]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="BackgroundColor">[0.717647, 0.274510, 1.000000]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+</System>

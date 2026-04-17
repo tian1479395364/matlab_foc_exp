@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[99, 9, 1688, 994]</P>
+  <P Name="ZoomFactor">80</P>
+  <Block BlockType="Inport" Name="IRefD" SID="441">
+    <P Name="Position">[140, -27, 170, -13]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="ISensD" SID="442">
+    <P Name="Position">[140, 38, 170, 52]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Inport" Name="IRefQ" SID="443">
+    <P Name="Position">[160, 293, 190, 307]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Inport" Name="ISensQ" SID="444">
+    <P Name="Position">[160, 353, 190, 367]</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Port">4</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="DCurrentPI" SID="445">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[265, -54, 315, 79]</P>
+    <P Name="ZOrder">24684</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_445"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="QCurrentPI" SID="457">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[265, 269, 315, 391]</P>
+    <P Name="ZOrder">24685</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_457"/>
+  </Block>
+  <Block BlockType="Outport" Name="PIOutoutVd" SID="469">
+    <P Name="Position">[395, 8, 425, 22]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Block BlockType="Outport" Name="PIOutputVq" SID="470">
+    <P Name="Position">[395, 323, 425, 337]</P>
+    <P Name="ZOrder">4</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">441#out:1</P>
+    <P Name="Dst">445#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">442#out:1</P>
+    <P Name="Dst">445#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">445#out:1</P>
+    <P Name="Dst">469#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">443#out:1</P>
+    <P Name="Dst">457#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">444#out:1</P>
+    <P Name="Dst">457#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">457#out:1</P>
+    <P Name="Dst">470#in:1</P>
+  </Line>
+</System>

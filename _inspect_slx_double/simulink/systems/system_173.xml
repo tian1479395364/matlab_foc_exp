@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="Open">on</P>
+  <Block BlockType="Inport" Name="Theta" SID="177">
+    <P Name="Position">[10, 53, 40, 67]</P>
+    <P Name="ZOrder">24642</P>
+  </Block>
+  <Block BlockType="Inport" Name="Vbus" SID="178">
+    <P Name="Position">[160, 118, 190, 132]</P>
+    <P Name="ZOrder">24643</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Inport" Name="s64_u_current" SID="414">
+    <P Name="Position">[-35, 273, -5, 287]</P>
+    <P Name="ZOrder">24658</P>
+    <P Name="Port">3</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">s64_u</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="s64_v_current" SID="415">
+    <P Name="Position">[-35, 313, -5, 327]</P>
+    <P Name="ZOrder">24659</P>
+    <P Name="Port">4</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">s64_v</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="s64_w_current" SID="416">
+    <P Name="Position">[-35, 353, -5, 367]</P>
+    <P Name="ZOrder">24660</P>
+    <P Name="Port">5</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">s64_w</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="BusCreator" Name="Bus&#xA;Creator" SID="567">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[120, 278, 130, 362]</P>
+    <P Name="ZOrder">24662</P>
+    <P Name="Inputs">s64_u,s64_v,s64_w</P>
+    <P Name="DisplayOption">bar</P>
+    <P Name="OutDataTypeStr">Bus: VectorUVW_T</P>
+    <P Name="NonVirtualBus">on</P>
+    <P Name="InheritFromInputs">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">measureCureent_s</P>
+        <P Name="MustResolveToSignalObject">on</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="CCaller" Name="C Caller" SID="850">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[215, 451, 535, 539]</P>
+    <P Name="ZOrder">24668</P>
+    <P Name="Commented">on</P>
+    <P Name="FunctionName">MATH_Scalar_MinimalJerk_Update</P>
+    <P Name="PortSpecificationStruct">  %)30     .    Z &lt;   8    (     @         %    &quot;     0    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X   !     !@    @    $          4    (     0    D    !         !     )    87!S7U-T871E          X   !     !@    @    $          4    (     0    D    !         !     )    87!S7U-T871E          X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;               #@   %@    &amp;    &quot;     0         !0    @    !    (@    $         $    &quot;(   !&quot;=7,Z($U!5$A?4V-A;&amp;%R7TUI;FEM86Q*97)K4W1A=&amp;54        #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !     !@    @    $          4    (     0    T    !         !     -    87!S7U!A&lt;F%M971E&lt;@    X   !     !@    @    $          4    (     0    T    !         !     -    87!S7U!A&lt;F%M971E&lt;@    X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;            / _#@   %@    &amp;    &quot;     0         !0    @    !    )@    $         $    &quot;8   !&quot;=7,Z($U!5$A?4V-A;&amp;%R7TUI;FEM86Q*97)K4&amp;%R86UE=&amp;5R5   #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !(    !@    @    $          4    (     0   !(    !         !     2    87,V-%]39710;VEN=%-P965D        #@   $@    &amp;    &quot;     0         !0    @    !    $@    $         $    !(   !A&lt;S8T7U-E=%!O:6YT4W!E960        .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @             0 X    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   $     &amp;    &quot;     0         !0    @    !    &quot;@    $         $     H   !A&lt;&apos;-?3W5T&lt;&apos;5T        #@   $     &amp;    &quot;     0         !0    @    !    &quot;@    $         $     H   !A&lt;&apos;-?3W5T&lt;&apos;5T        #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    6     8    (    !          %    &quot;     $    C     0         0    (P   $)U&lt;SH@34%42%]38V%L87)?36EN:6UA;$IE&lt;FM/=71P=714       .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      </P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="168">
+    <P Name="Position">[160, 175, 190, 205]</P>
+    <P Name="ZOrder">24637</P>
+    <P Name="Value">0</P>
+    <P Name="SampleTime">-1</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="FOC_CURRENT" SID="1">
+    <PortCounts in="5" out="4"/>
+    <P Name="Position">[275, 27, 495, 353]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="SystemSampleTime">TsFOC</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">s16_PwmOnTicks</P>
+        <P Name="MustResolveToSignalObject">on</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="PropagatedSignals">theta_est</P>
+      </Port>
+      <Port Type="out" Index="3">
+        <P Name="PropagatedSignals">mech_est</P>
+      </Port>
+      <Port Type="out" Index="4">
+        <P Name="PropagatedSignals">emega_est</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_1"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="RangeLimit" SID="140">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[125, 48, 190, 72]</P>
+    <P Name="ZOrder">24633</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">theta</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_140"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="Signal Builder" SID="169">
+    <P Name="Tag">STV Subsys</P>
+    <PortCounts out="1"/>
+    <P Name="Position">[-805, 535, -720, 575]</P>
+    <P Name="ZOrder">24638</P>
+    <P Name="Commented">on</P>
+    <P Name="CopyFcn">sigbuilder_block(&apos;copy&apos;);</P>
+    <P Name="DeleteFcn">sigbuilder_block(&apos;delete&apos;);</P>
+    <P Name="LoadFcn">sigbuilder_block(&apos;load&apos;);</P>
+    <P Name="ModelCloseFcn">sigbuilder_block(&apos;modelClose&apos;);</P>
+    <P Name="PreSaveFcn">sigbuilder_block(&apos;preSave&apos;);</P>
+    <P Name="StartFcn">sigbuilder_block(&apos;start&apos;);</P>
+    <P Name="PauseFcn">sigbuilder_block(&apos;pause&apos;);</P>
+    <P Name="ContinueFcn">sigbuilder_block(&apos;continue&apos;);</P>
+    <P Name="StopFcn">sigbuilder_block(&apos;stop&apos;);</P>
+    <P Name="NameChangeFcn">sigbuilder_block(&apos;namechange&apos;);</P>
+    <P Name="ClipboardFcn">sigbuilder_block(&apos;clipboard&apos;);</P>
+    <P Name="OpenFcn">sigbuilder_block(&apos;open&apos;,[261 231.5 550.5 362.5 ]);</P>
+    <P Name="CloseFcn">sigbuilder_block(&apos;close&apos;);</P>
+    <P Name="MaskHideContents">on</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <Mask SelfModifiable="on">
+      <Type>Sigbuilder block</Type>
+      <Display IconOpaque="transparent" IconRotate="port">plot(0, 0, 100, 100,[2, 2, 32, 32, 2], [68, 8, 8, 68, 68],[32, 2], [38, 38], [32, 19, 2],[53, 60, 44], [32, 17, 17, 2],[16, 16, 31, 31]);txt = getActiveGroup(gcbh);text(2, 100, txt,&apos;verticalAlignment&apos;, &apos;top&apos;);</Display>
+      <Description>Simulink:masks:SigbuilderBlock_MD</Description>
+      <Initialization>if ~strcmp(get_param(bdroot(gcbh),&apos;SimulationStatus&apos;),&apos;stopped&apos;) tuvar = sigbuilder_block(&apos;maskInit&apos;); end</Initialization>
+      <Capabilities>slmaskedcaps(gcbh)</Capabilities>
+      <MaskParameter Name="tuvar" Type="edit" Visible="off">
+        <Value>[0:10]</Value>
+      </MaskParameter>
+    </Mask>
+    <System Ref="system_169"/>
+  </Block>
+  <Block BlockType="Reference" Name="Signal Editor" SID="236">
+    <PortCounts out="1"/>
+    <P Name="Position">[130, 235, 215, 275]</P>
+    <P Name="ZOrder">24654</P>
+    <P Name="LibrarySourceBlock">simulink/Sources/Signal Editor</P>
+    <P Name="LibraryVersion">9.3</P>
+    <P Name="UserDataPersistent">on</P>
+    <P Name="UserData" Ref="bdmxdata:UserData_236"/>
+    <P Name="SourceBlock">SignalEditorBlockLib/Signal Editor</P>
+    <P Name="SourceType">SignalEditor</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">on</P>
+      <P Name="FileName">E:\Exp_G431\NUM1_CURRENTLOOP\builder_edit.mat</P>
+      <P Name="ActiveScenario">Scenario</P>
+      <P Name="ActiveSignal">IRefQ</P>
+      <P Name="IsBus">off</P>
+      <P Name="OutputBusObjectStr">Bus: BusObject</P>
+      <P Name="SampleTime">TsFOC</P>
+      <P Name="Interpolate">off</P>
+      <P Name="ZeroCross">off</P>
+      <P Name="OutputAfterFinalValue">Setting to zero</P>
+      <P Name="Unit">inherit</P>
+      <P Name="PreserveSignalName">on</P>
+      <P Name="ApplySigPropsToAllScenarios">on</P>
+      <P Name="ApplySigPropsToAllSignals">off</P>
+    </InstanceData>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">IRefQ</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Outport" Name="tout" SID="179">
+    <P Name="Position">[635, 63, 665, 77]</P>
+    <P Name="ZOrder">24644</P>
+  </Block>
+  <Block BlockType="Outport" Name="theta_est" SID="852">
+    <P Name="Position">[640, 143, 670, 157]</P>
+    <P Name="ZOrder">24669</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Outport" Name="mech_est" SID="853">
+    <P Name="Position">[640, 223, 670, 237]</P>
+    <P Name="ZOrder">24670</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Outport" Name="oemfa_est" SID="854">
+    <P Name="Position">[640, 303, 670, 317]</P>
+    <P Name="ZOrder">24671</P>
+    <P Name="Port">4</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">20</P>
+    <P Name="Src">178#out:1</P>
+    <P Name="Dst">1#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">177#out:1</P>
+    <P Name="Dst">140#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">theta</P>
+    <P Name="FontName">Helvetica</P>
+    <P Name="FontSize">9</P>
+    <P Name="FontWeight">normal</P>
+    <P Name="FontAngle">normal</P>
+    <P Name="ZOrder">7</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">140#out:1</P>
+    <P Name="Dst">1#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">168#out:1</P>
+    <P Name="Dst">1#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">44</P>
+    <P Name="Src">236#out:1</P>
+    <P Name="Dst">1#in:4</P>
+  </Line>
+  <Line>
+    <P Name="Name">measureCureent_s</P>
+    <P Name="FontName">Helvetica</P>
+    <P Name="FontSize">9</P>
+    <P Name="FontWeight">normal</P>
+    <P Name="FontAngle">normal</P>
+    <P Name="ZOrder">58</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">567#out:1</P>
+    <P Name="Dst">1#in:5</P>
+  </Line>
+  <Line>
+    <P Name="Name">s16_PwmOnTicks</P>
+    <P Name="FontName">Helvetica</P>
+    <P Name="FontSize">9</P>
+    <P Name="FontWeight">normal</P>
+    <P Name="FontAngle">normal</P>
+    <P Name="ZOrder">81</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">1#out:1</P>
+    <P Name="Dst">179#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">s64_u</P>
+    <P Name="ZOrder">82</P>
+    <P Name="Labels">[3, 1]</P>
+    <P Name="Src">414#out:1</P>
+    <P Name="Points">[55, 0; 0, 10]</P>
+    <P Name="Dst">567#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">s64_v</P>
+    <P Name="ZOrder">83</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">415#out:1</P>
+    <P Name="Dst">567#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">s64_w</P>
+    <P Name="ZOrder">84</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">416#out:1</P>
+    <P Name="Points">[60, 0; 0, -10]</P>
+    <P Name="Dst">567#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">88</P>
+    <P Name="Src">1#out:2</P>
+    <P Name="Dst">852#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">89</P>
+    <P Name="Src">1#out:3</P>
+    <P Name="Dst">853#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">90</P>
+    <P Name="Src">1#out:4</P>
+    <P Name="Dst">854#in:1</P>
+  </Line>
+</System>

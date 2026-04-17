@@ -1,0 +1,717 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="Open">on</P>
+  <P Name="ZoomFactor">60</P>
+  <Block BlockType="Inport" Name="Theta" SID="6">
+    <P Name="Position">[-135, 253, -105, 267]</P>
+    <P Name="ZOrder">3</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">theta_input</P>
+        <P Name="PropagatedSignals">theta</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="Vbus" SID="7">
+    <P Name="Position">[-130, 943, -100, 957]</P>
+    <P Name="ZOrder">4</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Inport" Name="IRefD" SID="8">
+    <P Name="Position">[-135, 33, -105, 47]</P>
+    <P Name="ZOrder">5</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Inport" Name="IRefQ" SID="9">
+    <P Name="Position">[620, 183, 650, 197]</P>
+    <P Name="ZOrder">6</P>
+    <P Name="Port">4</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">IRefQ</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="measureCurrent_input" SID="395">
+    <P Name="Position">[-135, 148, -105, 162]</P>
+    <P Name="ZOrder">24685</P>
+    <P Name="Port">5</P>
+    <P Name="OutDataTypeStr">Bus: VectorUVW_T</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">measureCureent_s</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="BusSelector" Name="Bus&#xA;Selector" SID="496">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[565, 133, 570, 282]</P>
+    <P Name="ZOrder">24703</P>
+    <P Name="OutputSignals">s64_d,s64_q</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">&lt;s64_d&gt;</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">&lt;s64_q&gt;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="CCaller" Name="C Caller" SID="634">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[0, 233, 130, 287]</P>
+    <P Name="ZOrder">24729</P>
+    <P Name="FunctionName">sincos_func</P>
+    <P Name="PortSpecificationStruct">  %)30     .    V ,   8    (     @         %    &quot;     (    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    =&amp;AE=&amp;$    .    .     8    (    !          %    &quot;     $    %     0         0    !0   &apos;1H971A    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    &lt;VEN7V-O&lt;P .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &apos;-I;E]C;W, #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #(    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       </P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">sine_cose_theta</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="CCaller" Name="C Caller1" SID="839">
+    <PortCounts in="2" out="3"/>
+    <P Name="Position">[740, 557, 1020, 633]</P>
+    <P Name="ZOrder">24765</P>
+    <P Name="FunctionName">PMSM_Observer_Step</P>
+    <P Name="PortSpecificationStruct">  %)30     .    &quot; D   8    (     @         %    &quot;     4    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    P    !@    @    $          4    (     0    0    !         !  ! !)7V%B#@   #     &amp;    &quot;     0         !0    @    !    !     $         $  $ $E?86(.    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X   !     !@    @    $          4    (     0    \    !         !     /    0G5S.B!696-T;W)!0E]4  X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    ,     8    (    !          %    &quot;     $    $     0         0  0 55]A8@X    P    !@    @    $          4    (     0    0    !         !  ! !57V%B#@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    0     8    (    !          %    &quot;     $    /     0         0    #P   $)U&lt;SH@5F5C=&amp;]R04)?5  .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   $     &amp;    &quot;     0         !0    @    !    &quot;0    $         $     D   !T:&amp;5T85]E&lt;W0         #@   $     &amp;    &quot;     0         !0    @    !    &quot;0    $         $     D   !T:&amp;5T85]E&lt;W0         #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !     !@    @    $          4    (     0    X    !         !     .    ;VUE9V%?;65C:%]E&lt;W0   X   !     !@    @    $          4    (     0    X    !         !     .    ;VUE9V%?;65C:%]E&lt;W0   X    X    !@    @    $          4    (     0    8    !         !     &amp;    3W5T&lt;&apos;5T   .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;            / _#@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D;W5B;&amp;4   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    0     8    (    !          %    &quot;     $    .     0         0    #@   &amp;]M96=A7V5L96-?97-T   .    0     8    (    !          %    &quot;     $    .     0         0    #@   &amp;]M96=A7V5L96-?97-T   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @             0 X    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      </P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">theta_est</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">mech_est</P>
+      </Port>
+      <Port Type="out" Index="3">
+        <P Name="Name">emega_est</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="CCaller" Name="ClarkeTransform" SID="492">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[70, 135, 270, 175]</P>
+    <P Name="ZOrder">24699</P>
+    <P Name="FunctionName">ClarkeTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    Z ,   8    (     @         %    &quot;     (    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    8    !         !     &amp;    04)#7VEN   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $%&quot;0U]I;@  #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    0     0         0    $    $)U&lt;SH@5F5C=&amp;]R55977U0.    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !!0E]O=70   X    X    !@    @    $          4    (     0    8    !         !     &amp;    04)?;W5T   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X   !     !@    @    $          4    (     0    \    !         !     /    0G5S.B!696-T;W)!0E]4  X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       </P>
+  </Block>
+  <Block BlockType="CCaller" Name="ClarkeTransform1" SID="499">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[-1520, -825, -1325, -685]</P>
+    <P Name="ZOrder">24706</P>
+    <P Name="Commented">on</P>
+    <P Name="FunctionName">ClarkeTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    H 4   8    (     @         %    &quot;     ,    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X   !     !@    @    $          4    (     0    D    !         !     )    :6Y?=F5C=&amp;]R          X   !     !@    @    $          4    (     0    D    !         !     )    :6Y?=F5C=&amp;]R          X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;               #@   $     &amp;    &quot;     0         !0    @    !    $     $         $    !    !&quot;=7,Z($-L87)K94EN&lt;&apos;5T#@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    :5]A;&apos;!H80 .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &amp;E?86QP:&amp;$ #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    8    !         !     &amp;    :5]B971A   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;E?8F5T80  #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       </P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">i_alpha_clark</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">i_beta_clark</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="SubSystem" Name="CurrentLoop1" SID="440">
+    <PortCounts in="4" out="2"/>
+    <P Name="Position">[-1630, 756, -1440, 964]</P>
+    <P Name="ZOrder">24691</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_440"/>
+  </Block>
+  <Block BlockType="From" Name="From" SID="95">
+    <P Name="Position">[-1580, 1066, -1510, 1094]</P>
+    <P Name="ZOrder">301</P>
+    <P Name="BackgroundColor">[0.850980, 0.325490, 0.098039]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">PIOutputVd</P>
+  </Block>
+  <Block BlockType="From" Name="From1" SID="96">
+    <P Name="Position">[-1580, 1126, -1510, 1154]</P>
+    <P Name="ZOrder">302</P>
+    <P Name="BackgroundColor">[0.074510, 0.623529, 1.000000]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">PIOutputVq</P>
+  </Block>
+  <Block BlockType="From" Name="From10" SID="724">
+    <P Name="Position">[1580, 1277, 1630, 1303]</P>
+    <P Name="ZOrder">24762</P>
+    <P Name="BackgroundColor">gray</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">V_beta</P>
+  </Block>
+  <Block BlockType="From" Name="From2" SID="99">
+    <P Name="Position">[-1580, 1186, -1510, 1214]</P>
+    <P Name="ZOrder">304</P>
+    <P Name="BackgroundColor">[0.466667, 0.674510, 0.188235]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">sincos</P>
+  </Block>
+  <Block BlockType="From" Name="From3" SID="504">
+    <P Name="Position">[280, 820, 360, 850]</P>
+    <P Name="ZOrder">24711</P>
+    <P Name="BackgroundColor">[0.392157, 0.831373, 0.074510]</P>
+    <P Name="GotoTag">PIOutputVdq</P>
+  </Block>
+  <Block BlockType="From" Name="From4" SID="721">
+    <P Name="Position">[1580, 1143, 1630, 1167]</P>
+    <P Name="ZOrder">24759</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">I_alpha</P>
+  </Block>
+  <Block BlockType="From" Name="From5" SID="506">
+    <P Name="Position">[-1660, 1571, -1590, 1599]</P>
+    <P Name="ZOrder">24713</P>
+    <P Name="BackgroundColor">[0.850980, 0.325490, 0.098039]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">PIOutputVd</P>
+  </Block>
+  <Block BlockType="From" Name="From6" SID="507">
+    <P Name="Position">[-1660, 1631, -1590, 1659]</P>
+    <P Name="ZOrder">24714</P>
+    <P Name="BackgroundColor">[0.074510, 0.623529, 1.000000]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">PIOutputVq</P>
+  </Block>
+  <Block BlockType="From" Name="From7" SID="508">
+    <P Name="Position">[-1660, 1691, -1590, 1719]</P>
+    <P Name="ZOrder">24715</P>
+    <P Name="BackgroundColor">[0.466667, 0.674510, 0.188235]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">sincos</P>
+  </Block>
+  <Block BlockType="From" Name="From8" SID="722">
+    <P Name="Position">[1580, 1188, 1630, 1212]</P>
+    <P Name="ZOrder">24760</P>
+    <P Name="BackgroundColor">[0.392157, 0.831373, 0.074510]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">I_beta</P>
+  </Block>
+  <Block BlockType="From" Name="From9" SID="723">
+    <P Name="Position">[1580, 1235, 1630, 1255]</P>
+    <P Name="ZOrder">24761</P>
+    <P Name="BackgroundColor">cyan</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">V_alpha</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto" SID="725">
+    <P Name="Position">[1870, 1167, 1920, 1193]</P>
+    <P Name="ZOrder">24758</P>
+    <P Name="BackgroundColor">[0.466667, 0.674510, 0.188235]</P>
+    <P Name="Commented">on</P>
+    <P Name="GotoTag">SinCos</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto3" SID="503">
+    <P Name="Position">[985, 250, 1065, 280]</P>
+    <P Name="ZOrder">24710</P>
+    <P Name="BackgroundColor">[0.392157, 0.831373, 0.074510]</P>
+    <P Name="GotoTag">PIOutputVdq</P>
+  </Block>
+  <Block BlockType="CCaller" Name="InverseParkTransform" SID="476">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[-1425, 1049, -1260, 1236]</P>
+    <P Name="ZOrder">24696</P>
+    <P Name="Commented">on</P>
+    <P Name="FunctionName">InverseParkTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    F 4   8    (     @         %    &quot;     ,    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    1%%?:6X    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $117VEN    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    /     0         0    #P   $)U&lt;SH@5F5C=&amp;]R1%%?5  .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !T:&amp;5T80    X    X    !@    @    $          4    (     0    4    !         !     %    =&amp;AE=&amp;$    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @           #P/PX    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !!0E]O=70   X    X    !@    @    $          4    (     0    8    !         !     &amp;    04)?;W5T   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X   !     !@    @    $          4    (     0    \    !         !     /    0G5S.B!696-T;W)!0E]4  X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       </P>
+  </Block>
+  <Block BlockType="CCaller" Name="InverseParkTransform1" SID="509">
+    <PortCounts in="3" out="2"/>
+    <P Name="Position">[-1505, 1552, -1340, 1738]</P>
+    <P Name="ZOrder">24716</P>
+    <P Name="Commented">on</P>
+    <P Name="FunctionName">InverseParkTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    T @   8    (     @         %    &quot;     4    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    P    !@    @    $          4    (     0    ,    !         !   P!U7V0 #@   #     &amp;    &quot;     0         !0    @    !     P    $         $  # &apos;5?9  .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #     &amp;    &quot;     0         !0    @    !     P    $         $  # &apos;5?&lt;0 .    ,     8    (    !          %    &quot;     $    #     0         0  , =5]Q  X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;            / _#@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D;W5B;&amp;4   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &apos;-I;E]C;W, #@   #@    &amp;    &quot;     0         !0    @    !    !P    $         $     &lt;   !S:6Y?8V]S  X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;             ! #@   $     &amp;    &quot;     0         !0    @    !    $     $         $    !    !&quot;=7,Z(%-I;D-O&lt;TEN&lt;&apos;5T#@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    =5]A;&apos;!H80 .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &apos;5?86QP:&amp;$ #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    8    !         !     &amp;    =5]B971A   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &apos;5?8F5T80  #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       </P>
+  </Block>
+  <Block BlockType="SubSystem" Name="OBSERVER" SID="726">
+    <PortCounts in="4" out="2"/>
+    <P Name="Position">[1685, 1136, 1765, 1309]</P>
+    <P Name="ZOrder">24763</P>
+    <P Name="Commented">on</P>
+    <P Name="RTWSystemCode">Reusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <Mask>
+      <Display RunInitForIconRedraw="off"/>
+    </Mask>
+    <System Ref="system_726"/>
+  </Block>
+  <Block BlockType="CCaller" Name="ParkTransform" SID="495">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[385, 103, 530, 312]</P>
+    <P Name="ZOrder">24702</P>
+    <P Name="FunctionName">ParkTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    F 4   8    (     @         %    &quot;     ,    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    04)?:6X    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $%&quot;7VEN    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    /     0         0    #P   $)U&lt;SH@5F5C=&amp;]R04)?5  .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !P    $         $     &lt;   !S:6Y?8V]S  X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    &lt;VEN7V-O&lt;P .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @           #P/PX    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,@    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !$45]O=70   X    X    !@    @    $          4    (     0    8    !         !     &amp;    1%%?;W5T   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X   !     !@    @    $          4    (     0    \    !         !     /    0G5S.B!696-T;W)$45]4  X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       </P>
+  </Block>
+  <Block BlockType="CCaller" Name="ParkTransform1" SID="498">
+    <PortCounts in="3" out="2"/>
+    <P Name="Position">[-1195, -861, -1065, -649]</P>
+    <P Name="ZOrder">24705</P>
+    <P Name="Commented">on</P>
+    <P Name="FunctionName">ParkTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    T @   8    (     @         %    &quot;     4    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    :5]A;&apos;!H80 .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &amp;E?86QP:&amp;$ #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    8    !         !     &amp;    :5]B971A   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;E?8F5T80  #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    &lt;VEN7V-O&lt;P .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &apos;-I;E]C;W, #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (             $ .    0     8    (    !          %    &quot;     $    0     0         0    $    $)U&lt;SH@4VEN0V]S26YP=70.    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #     &amp;    &quot;     0         !0    @    !     P    $         $  # &amp;E?9  .    ,     8    (    !          %    &quot;     $    #     0         0  , :5]D  X    X    !@    @    $          4    (     0    8    !         !     &amp;    3W5T&lt;&apos;5T   .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;               #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D;W5B;&amp;4   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    ,     8    (    !          %    &quot;     $    #     0         0  , :5]Q  X    P    !@    @    $          4    (     0    ,    !         !   P!I7W$ #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       </P>
+  </Block>
+  <Block BlockType="CCaller" Name="ParkTransform2" SID="605">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[-970, 278, -825, 487]</P>
+    <P Name="ZOrder">24727</P>
+    <P Name="Commented">on</P>
+    <P Name="FunctionName">ParkTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    F 4   8    (     @         %    &quot;     ,    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    04)?:6X    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $%&quot;7VEN    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    /     0         0    #P   $)U&lt;SH@5F5C=&amp;]R04)?5  .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !T:&amp;5T80    X    X    !@    @    $          4    (     0    4    !         !     %    =&amp;AE=&amp;$    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @           #P/PX    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !$45]O=70   X    X    !@    @    $          4    (     0    8    !         !     &amp;    1%%?;W5T   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X   !     !@    @    $          4    (     0    \    !         !     /    0G5S.B!696-T;W)$45]4  X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       </P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition1" SID="224">
+    <P Name="Position">[675, 126, 715, 154]</P>
+    <P Name="ZOrder">24676</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition2" SID="225">
+    <P Name="Position">[675, 176, 715, 204]</P>
+    <P Name="ZOrder">24677</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition3" SID="226">
+    <P Name="Position">[675, 226, 715, 254]</P>
+    <P Name="ZOrder">24678</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition8" SID="223">
+    <P Name="Position">[675, 76, 715, 104]</P>
+    <P Name="ZOrder">24675</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="SVPWM2" SID="100">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[-1270, 288, -1135, 577]</P>
+    <P Name="ZOrder">305</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_100"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="SVPWM3" SID="569">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[-1270, 1262, -1135, 1548]</P>
+    <P Name="ZOrder">24726</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Reusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">tABC2</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_569"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="SVPWM_func" SID="520">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[735, 731, 870, 1024]</P>
+    <P Name="ZOrder">24717</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_520"/>
+  </Block>
+  <Block BlockType="SubSystem" Name="clark1" SID="376">
+    <PortCounts in="3" out="2"/>
+    <P Name="Position">[-1620, 538, -1500, 682]</P>
+    <P Name="ZOrder">24681</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Reusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <Mask>
+      <Display RunInitForIconRedraw="off">port_label(&apos;input&apos;,1,&apos;a&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;input&apos;,2,&apos;b&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;input&apos;,3,&apos;c&apos;,&apos;texmode&apos;,&apos;on&apos;);
+
+port_label(&apos;output&apos;,1,&apos;\alpha&apos;,&apos;texmode&apos;,&apos;on&apos;);
+port_label(&apos;output&apos;,2,&apos;\beta&apos;,&apos;texmode&apos;,&apos;on&apos;);
+
+fprintf(&apos;Clark&apos;);</Display>
+    </Mask>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">i_alpha_clark</P>
+        <P Name="MustResolveToSignalObject">on</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">i_beta_clark</P>
+        <P Name="MustResolveToSignalObject">on</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_376"/>
+  </Block>
+  <Block BlockType="CCaller" Name="currentLoopDQ" SID="439">
+    <PortCounts in="8" out="1"/>
+    <P Name="Position">[750, 70, 920, 460]</P>
+    <P Name="ZOrder">24690</P>
+    <P Name="FunctionName">CurrentLoopDQ</P>
+    <P Name="PortSpecificationStruct">  %)30     .    \ \   8    (     @         %    &quot;     D    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    25)E9D0    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $E2969$    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    8    !         !     &amp;    25-E;G-$   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $E396YS1   #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    4    !         !     %    25)E9E$    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $E29691    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (             $ .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    8    !         !     &amp;    25-E;G-1   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $E396YS40  #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (            &quot;$ .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !     !@    @    $          4    (     0    H    !         !     *    9%]K&lt;%]P87)A;0        X   !     !@    @    $          4    (     0    H    !         !     *    9%]K&lt;%]P87)A;0        X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;            !! #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D;W5B;&amp;4   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    0     8    (    !          %    &quot;     $    *     0         0    &quot;@   &amp;1?:VE?&lt;&amp;%R86T        .    0     8    (    !          %    &quot;     $    *     0         0    &quot;@   &amp;1?:VE?&lt;&amp;%R86T        .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @            40 X    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   $     &amp;    &quot;     0         !0    @    !    &quot;@    $         $     H   !Q7VMP7W!A&lt;F%M        #@   $     &amp;    &quot;     0         !0    @    !    &quot;@    $         $     H   !Q7VMP7W!A&lt;F%M        #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (            &amp;$ .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !     !@    @    $          4    (     0    H    !         !     *    &lt;5]K:5]P87)A;0        X   !     !@    @    $          4    (     0    H    !         !     *    &lt;5]K:5]P87)A;0        X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;            !Q #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D;W5B;&amp;4   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1Q7V]U=   #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D&lt;5]O=70   X    X    !@    @    $          4    (     0    8    !         !     &amp;    3W5T&lt;&apos;5T   .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;               #@   $     &amp;    &quot;     0         !0    @    !    #P    $         $     \   !&quot;=7,Z(%9E8W1O&lt;D117U0 #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       </P>
+  </Block>
+  <Block BlockType="Constant" Name="d_ki" SID="472">
+    <P Name="Position">[605, 325, 635, 355]</P>
+    <P Name="ZOrder">24693</P>
+    <P Name="Value">Rs*bandwidth</P>
+    <P Name="SampleTime">TsFOC</P>
+  </Block>
+  <Block BlockType="Constant" Name="d_kp" SID="471">
+    <P Name="Position">[605, 275, 635, 305]</P>
+    <P Name="ZOrder">24692</P>
+    <P Name="Value">Ls*bandwidth</P>
+    <P Name="SampleTime">TsFOC</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="inv_park1" SID="477">
+    <PortCounts in="3" out="2"/>
+    <P Name="Position">[-1355, 659, -1245, 851]</P>
+    <P Name="ZOrder">24697</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">i_alpha_inv_park</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">i_beta_inv_park</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_477"/>
+  </Block>
+  <Block BlockType="CCaller" Name="invpark" SID="500">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[475, 737, 640, 868]</P>
+    <P Name="ZOrder">24707</P>
+    <P Name="FunctionName">InverseParkTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    &gt; 4   8    (     @         %    &quot;     ,    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    &lt;VEN7V-O&lt;P .    .     8    (    !          %    &quot;     $    &apos;     0         0    !P   &apos;-I;E]C;W, #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #(    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    P    !@    @    $          4    (     0    (    !         !   @!I;@  #@   #     &amp;    &quot;     0         !0    @    !     @    $         $  &quot; &amp;EN   .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @           #P/PX   !     !@    @    $          4    (     0    \    !         !     /    0G5S.B!696-T;W)$45]4  X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    ,     8    (    !          %    &quot;     $    #     0         0  , ;W5T  X    P    !@    @    $          4    (     0    ,    !         !   P!O=70 #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    /     0         0    #P   $)U&lt;SH@5F5C=&amp;]R04)?5  .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      </P>
+  </Block>
+  <Block BlockType="SubSystem" Name="park1" SID="423">
+    <PortCounts in="3" out="2"/>
+    <P Name="Position">[-1620, 263, -1485, 467]</P>
+    <P Name="ZOrder">24687</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Reusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">i_d_park</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">i_q_park</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_423"/>
+  </Block>
+  <Block BlockType="Constant" Name="q_ki" SID="474">
+    <P Name="Position">[605, 425, 635, 455]</P>
+    <P Name="ZOrder">24695</P>
+    <P Name="Value">Rs*bandwidth</P>
+    <P Name="SampleTime">TsFOC</P>
+  </Block>
+  <Block BlockType="Constant" Name="q_kp" SID="473">
+    <P Name="Position">[605, 375, 635, 405]</P>
+    <P Name="ZOrder">24694</P>
+    <P Name="Value">Ls*bandwidth</P>
+    <P Name="SampleTime">TsFOC</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="sincos1" SID="706">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[-935, 630, -855, 690]</P>
+    <P Name="ZOrder">24756</P>
+    <P Name="Commented">on</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">sine_cose_theta</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_706"/>
+  </Block>
+  <Block BlockType="Outport" Name="t_out" SID="720">
+    <P Name="Position">[1215, 873, 1245, 887]</P>
+    <P Name="ZOrder">24757</P>
+  </Block>
+  <Block BlockType="Outport" Name="theta_est_out" SID="842">
+    <P Name="Position">[1125, 523, 1155, 537]</P>
+    <P Name="ZOrder">24768</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Outport" Name="mech_est_out" SID="843">
+    <P Name="Position">[1125, 588, 1155, 602]</P>
+    <P Name="ZOrder">24769</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Outport" Name="oemga_est_out" SID="848">
+    <P Name="Position">[1125, 628, 1155, 642]</P>
+    <P Name="ZOrder">24770</P>
+    <P Name="Port">4</P>
+  </Block>
+  <Line>
+    <P Name="Name">theta_input</P>
+    <P Name="ZOrder">240</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">6#out:1</P>
+    <P Name="Dst">634#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">16</P>
+    <P Name="Src">8#out:1</P>
+    <P Name="Points">[570, 0; 0, 50]</P>
+    <P Name="Dst">223#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">17</P>
+    <P Name="Src">9#out:1</P>
+    <P Name="Dst">225#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">146</P>
+    <P Name="Src">95#out:1</P>
+    <P Name="Points">[37, 0; 0, 15]</P>
+    <P Name="Dst">476#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">117</P>
+    <P Name="Src">223#out:1</P>
+    <P Name="Dst">439#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">i_beta_clark</P>
+    <P Name="ZOrder">47</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">376#out:2</P>
+    <P Name="Points">[115, 0]</P>
+  </Line>
+  <Line>
+    <P Name="Name">i_alpha_clark</P>
+    <P Name="ZOrder">48</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">376#out:1</P>
+    <P Name="Points">[115, 0]</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">49</P>
+    <P Name="Points">[-1705, 660]</P>
+    <P Name="Dst">376#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">50</P>
+    <P Name="Points">[-1705, 610]</P>
+    <P Name="Dst">376#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">51</P>
+    <P Name="Points">[-1705, 560]</P>
+    <P Name="Dst">376#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">118</P>
+    <P Name="Src">224#out:1</P>
+    <P Name="Dst">439#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">119</P>
+    <P Name="Src">225#out:1</P>
+    <P Name="Dst">439#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">120</P>
+    <P Name="Src">226#out:1</P>
+    <P Name="Dst">439#in:4</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">123</P>
+    <P Name="Src">471#out:1</P>
+    <P Name="Dst">439#in:5</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">124</P>
+    <P Name="Src">472#out:1</P>
+    <P Name="Dst">439#in:6</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">125</P>
+    <P Name="Src">473#out:1</P>
+    <P Name="Dst">439#in:7</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">126</P>
+    <P Name="Src">474#out:1</P>
+    <P Name="Dst">439#in:8</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">147</P>
+    <P Name="Src">96#out:1</P>
+    <P Name="Points">[37, 0; 0, 50]</P>
+    <P Name="Dst">476#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">148</P>
+    <P Name="Src">99#out:1</P>
+    <P Name="Points">[75, 0]</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">154</P>
+    <P Name="Src">495#out:1</P>
+    <P Name="Dst">496#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;s64_d&gt;</P>
+    <P Name="ZOrder">159</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">496#out:1</P>
+    <P Name="Points">[35, 0; 0, -30]</P>
+    <P Name="Dst">224#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;s64_q&gt;</P>
+    <P Name="ZOrder">160</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">496#out:2</P>
+    <P Name="Points">[35, 0; 0, -5]</P>
+    <P Name="Dst">226#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">171</P>
+    <P Name="Src">506#out:1</P>
+    <P Name="Dst">509#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">172</P>
+    <P Name="Src">509#out:1</P>
+    <P Name="Points">[37, 0; 0, -10; 83, 0]</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">173</P>
+    <P Name="Src">507#out:1</P>
+    <P Name="Dst">509#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">174</P>
+    <P Name="Src">508#out:1</P>
+    <P Name="Dst">509#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">175</P>
+    <P Name="Src">509#out:2</P>
+    <P Name="Points">[73, 0; 0, -10; 47, 0]</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">177</P>
+    <P Name="Src">500#out:1</P>
+    <P Name="Points">[33, 0]</P>
+    <Branch>
+      <P Name="ZOrder">296</P>
+      <P Name="Points">[0, -190]</P>
+      <P Name="Dst">839#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">295</P>
+      <P Name="Dst">520#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">178</P>
+    <P Name="Src">7#out:1</P>
+    <P Name="Dst">520#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">187</P>
+    <P Name="Src">395#out:1</P>
+    <P Name="Dst">492#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">188</P>
+    <P Name="Src">492#out:1</P>
+    <P Name="Points">[48, 0]</P>
+    <Branch>
+      <P Name="ZOrder">294</P>
+      <P Name="Points">[0, 420]</P>
+      <P Name="Dst">839#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">293</P>
+      <P Name="Dst">495#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="Name">sine_cose_theta</P>
+    <P Name="ZOrder">241</P>
+    <P Name="Src">634#out:1</P>
+    <P Name="Points">[115, 0]</P>
+    <Branch>
+      <P Name="ZOrder">302</P>
+      <P Name="Labels">[1, 0]</P>
+      <P Name="Points">[0, 510]</P>
+      <P Name="Dst">500#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">242</P>
+      <P Name="Dst">495#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">195</P>
+    <P Name="Src">439#out:1</P>
+    <P Name="Dst">503#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">197</P>
+    <P Name="Src">504#out:1</P>
+    <P Name="Dst">500#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">280</P>
+    <P Name="Src">520#out:1</P>
+    <P Name="Dst">720#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">281</P>
+    <P Name="Src">721#out:1</P>
+    <P Name="Dst">726#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">282</P>
+    <P Name="Src">724#out:1</P>
+    <P Name="Dst">726#in:4</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">284</P>
+    <P Name="Src">722#out:1</P>
+    <P Name="Dst">726#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">285</P>
+    <P Name="Src">726#out:1</P>
+    <P Name="Dst">725#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">286</P>
+    <P Name="Src">723#out:1</P>
+    <P Name="Dst">726#in:3</P>
+  </Line>
+  <Line>
+    <P Name="Name">theta_est</P>
+    <P Name="ZOrder">299</P>
+    <P Name="Labels">[2, 1]</P>
+    <P Name="Src">839#out:1</P>
+    <P Name="Points">[30, 0; 0, -40]</P>
+    <P Name="Dst">842#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">mech_est</P>
+    <P Name="ZOrder">300</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">839#out:2</P>
+    <P Name="Dst">843#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">emega_est</P>
+    <P Name="ZOrder">301</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">839#out:3</P>
+    <P Name="Points">[48, 0; 0, 15]</P>
+    <P Name="Dst">848#in:1</P>
+  </Line>
+</System>

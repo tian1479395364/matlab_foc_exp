@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlCache/19700101">
+  <slcache.MasterInformation type="slcache.MasterInformation" uuid="75820643-d121-4a0a-87e5-e6340664a444">
+    <entries type="slcache.ReleaseMap" uuid="311fe972-444d-47ae-bb70-d5aaa3627fd3">
+      <platforms>all</platforms>
+      <platforms>win64</platforms>
+      <release>R2024a</release>
+    </entries>
+    <modelName>FOC_CURRENTLOOP_DOUBLE</modelName>
+  </slcache.MasterInformation>
+</MF0>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MF0 version="1.1" packageUris="http://schema.mathworks.com/mf0/SlCache/19700101">
+  <slcache.Information type="slcache.Information" uuid="e37c5664-3749-490e-83db-c6a815fdda3c">
+    <entries type="slcache.TargetChecksum" uuid="9a177f95-2145-4032-9405-71a1c6234f24">
+      <checksum>kEcrYEpssatuy24y2/lSh2muZDPloRtPcOc1b6RfvrAIdPqvkPpLe6QV1b8tz5fMXt4wS4O0ZRcty9bFTSrQ4g==</checksum>
+      <mode>VARCACHE</mode>
+    </entries>
+    <modelName>FOC_CURRENTLOOP_DOUBLE</modelName>
+    <platform>all</platform>
+    <release>R2024a</release>
+    <slprjVersion>24.1_093</slprjVersion>
+  </slcache.Information>
+</MF0>

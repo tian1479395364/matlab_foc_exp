@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-8, -8, 1928, 1048]</P>
+  <P Name="ZoomFactor">308</P>
+  <Block BlockType="Inport" Name="In1" SID="752">
+    <P Name="Position">[75, 78, 105, 92]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="ActionPort" Name="Action Port" SID="753">
+    <P Name="Position">[170, 15, 229, 43]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="754">
+    <P Name="Position">[75, 125, 105, 155]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Value">2*pi</P>
+    <P Name="OutDataTypeStr">double</P>
+    <P Name="SampleTime">-1</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="755">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[210, 75, 230, 95]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="Inputs">|++</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Block BlockType="Outport" Name="Out1" SID="756">
+    <P Name="Position">[325, 78, 355, 92]</P>
+    <P Name="ZOrder">-3</P>
+    <P Name="OutDataTypeStr">double</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">752#out:1</P>
+    <P Name="Dst">755#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">754#out:1</P>
+    <P Name="Points">[110, 0]</P>
+    <P Name="Dst">755#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">755#out:1</P>
+    <P Name="Dst">756#in:1</P>
+  </Line>
+</System>

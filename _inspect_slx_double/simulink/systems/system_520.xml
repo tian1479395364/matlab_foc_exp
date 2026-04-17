@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="ZoomFactor">70</P>
+  <Block BlockType="Inport" Name="Uαβ" SID="521">
+    <P Name="Position">[-80, 418, -50, 432]</P>
+    <P Name="ZOrder">291</P>
+  </Block>
+  <Block BlockType="Inport" Name="vbus" SID="522">
+    <P Name="Position">[-10, 648, 20, 662]</P>
+    <P Name="ZOrder">290</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="BusSelector" Name="Bus&#xA;Selector" SID="632">
+    <PortCounts in="1" out="3"/>
+    <P Name="Position">[460, 826, 465, 864]</P>
+    <P Name="ZOrder">24755</P>
+    <P Name="Commented">on</P>
+    <P Name="OutputSignals">s64_u,s64_v,s64_w</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">&lt;s64_u&gt;</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">&lt;s64_v&gt;</P>
+      </Port>
+      <Port Type="out" Index="3">
+        <P Name="Name">&lt;s64_w&gt;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="CCaller" Name="CalcZeroSequenceVoltage" SID="524">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[365, 370, 595, 480]</P>
+    <P Name="ZOrder">282</P>
+    <P Name="FunctionName">CalcZeroSequenceVoltage</P>
+    <P Name="PortSpecificationStruct">  %)30     .    X ,   8    (     @         %    &quot;     (    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    =5]A8F,    .    .     8    (    !          %    &quot;     $    %     0         0    !0   &apos;5?86)C    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    0     0         0    $    $)U&lt;SH@5F5C=&amp;]R55977U0.    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !U7WIE&lt;F\   X    X    !@    @    $          4    (     0    8    !         !     &amp;    =5]Z97)O   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      </P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">ZeroSequenceVoltage</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Constant" Name="Constant1" SID="525">
+    <P Name="Position">[725, 140, 755, 170]</P>
+    <P Name="ZOrder">9</P>
+    <P Name="Commented">on</P>
+    <P Name="Value">0.5</P>
+    <P Name="SampleTime">TsFOC</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant2" SID="624">
+    <P Name="Position">[810, 935, 840, 965]</P>
+    <P Name="ZOrder">24751</P>
+    <P Name="Commented">on</P>
+    <P Name="Value">0.5</P>
+    <P Name="OutDataTypeStr">single</P>
+    <P Name="SampleTime">-1</P>
+  </Block>
+  <Block BlockType="Product" Name="Divide" SID="527">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[725, 32, 755, 108]</P>
+    <P Name="ZOrder">6</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">*/</P>
+  </Block>
+  <Block BlockType="Product" Name="Divide1" SID="625">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[810, 827, 840, 903]</P>
+    <P Name="ZOrder">24749</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">*/</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="529">
+    <P Name="Position">[645, 35, 675, 65]</P>
+    <P Name="ZOrder">5</P>
+    <P Name="Commented">on</P>
+    <P Name="Gain">-1</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="530">
+    <P Name="Position">[915, 55, 945, 85]</P>
+    <P Name="ZOrder">10</P>
+    <P Name="Commented">on</P>
+    <P Name="Gain">PWMHalfPeriod</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain2" SID="626">
+    <P Name="Position">[730, 830, 760, 860]</P>
+    <P Name="ZOrder">24748</P>
+    <P Name="Commented">on</P>
+    <P Name="Gain">-1</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain3" SID="627">
+    <P Name="Position">[1000, 850, 1030, 880]</P>
+    <P Name="ZOrder">24752</P>
+    <P Name="Commented">on</P>
+    <P Name="Gain">PWMHalfPeriod</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="InvClark" SID="533">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[290, -76, 385, 11]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">spwm</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_533"/>
+  </Block>
+  <Block BlockType="CCaller" Name="InverseClarkeTransform" SID="523">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[45, 377, 240, 473]</P>
+    <P Name="ZOrder">281</P>
+    <P Name="FunctionName">InverseClarkeTransform</P>
+    <P Name="PortSpecificationStruct">  %)30     .    Z ,   8    (     @         %    &quot;     (    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    4    !         !     %    04)?:6X    .    .     8    (    !          %    &quot;     $    %     0         0    !0   $%&quot;7VEN    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    0     8    (    !          %    &quot;     $    /     0         0    #P   $)U&lt;SH@5F5C=&amp;]R04)?5  .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #@    &amp;    &quot;     0         !0    @    !    !P    $         $     &lt;   !!0D-?;W5T  X    X    !@    @    $          4    (     0    &lt;    !         !     &apos;    04)#7V]U=  .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   $]U=&apos;!U=   #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @               X   !     !@    @    $          4    (     0   !     !         !     0    0G5S.B!696-T;W)55E=?5 X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       </P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">voltage_uvw</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Mux" Name="Mux" SID="633">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[530, 826, 535, 864]</P>
+    <P Name="ZOrder">24756</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">3</P>
+    <P Name="DisplayOption">bar</P>
+  </Block>
+  <Block BlockType="CCaller" Name="SVPWM_CalcDutyCycle" SID="606">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[695, 544, 920, 676]</P>
+    <P Name="ZOrder">24729</P>
+    <P Name="FunctionName">SVPWM_CalcDutyCycle</P>
+    <P Name="PortSpecificationStruct">  %)30     .    ( &lt;   8    (     @         %    &quot;     0    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X    X    !@    @    $          4    (     0    8    !         !     &amp;    =5]Z97)O   .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &apos;5?&gt;F5R;P  #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X    X    !@    @    $          4    (     0    4    !         !     %    =5]A8F,    .    .     8    (    !          %    &quot;     $    %     0         0    !0   &apos;5?86)C    #@   #@    &amp;    &quot;     0         !0    @    !    !0    $         $     4   !);G!U=     X    X    !@    @    &amp;          4    (     0    $    !          D    (            \#\.    0     8    (    !          %    &quot;     $    0     0         0    $    $)U&lt;SH@5F5C=&amp;]R55977U0.    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   #     &amp;    &quot;     0         !0    @    !    !     $         $  $ &apos;9B=7,.    ,     8    (    !          %    &quot;     $    $     0         0  0 =F)U&lt;PX    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;             ! #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !D;W5B;&amp;4   X    P    !@    @    $          4    (     0    $    !         !   0 Q    #@   #     &amp;    &quot;     D&quot;        !0    @    !     0    $          @ !       .    ,     8    (    !          %    &quot;     $    $     0         0  0 =$%&quot;0PX    P    !@    @    $          4    (     0    0    !         !  ! !T04)##@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    .     8    (    !          %    &quot;     $    &amp;     0         0    !@   &amp;1O=6)L90  #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #,    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       </P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="545">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[565, 40, 585, 60]</P>
+    <P Name="ZOrder">4</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">++|</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="546">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[825, 60, 845, 80]</P>
+    <P Name="ZOrder">8</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">|++</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum2" SID="628">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[650, 835, 670, 855]</P>
+    <P Name="ZOrder">24747</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">++|</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum3" SID="629">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[910, 855, 930, 875]</P>
+    <P Name="ZOrder">24750</P>
+    <P Name="Commented">on</P>
+    <P Name="Inputs">|++</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="ei_t" SID="549">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[435, -74, 530, 14]</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Commented">on</P>
+    <P Name="TreatAsAtomicUnit">on</P>
+    <P Name="RTWSystemCode">Nonreusable function</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">eit</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_549"/>
+  </Block>
+  <Block BlockType="Outport" Name="tABC" SID="558">
+    <P Name="Position">[1000, 603, 1030, 617]</P>
+    <P Name="ZOrder">283</P>
+  </Block>
+  <Line>
+    <P Name="Name">eit</P>
+    <P Name="ZOrder">1</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">549#out:1</P>
+    <P Name="Points">[40, 0]</P>
+    <P Name="Dst">545#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">spwm</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">533#out:1</P>
+    <P Name="Points">[16, 0]</P>
+    <Branch>
+      <P Name="ZOrder">3</P>
+      <P Name="Labels">[2, 1]</P>
+      <P Name="Points">[0, 80]</P>
+      <P Name="Dst">545#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">4</P>
+      <P Name="Dst">549#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">545#out:1</P>
+    <P Name="Dst">529#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">529#out:1</P>
+    <P Name="Dst">527#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">527#out:1</P>
+    <P Name="Dst">546#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">525#out:1</P>
+    <P Name="Points">[75, 0]</P>
+    <P Name="Dst">546#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">546#out:1</P>
+    <P Name="Dst">530#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">530#out:1</P>
+    <P Name="Points">[75, 0]</P>
+  </Line>
+  <Line>
+    <P Name="Name">voltage_uvw</P>
+    <P Name="ZOrder">18</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">523#out:1</P>
+    <P Name="Points">[89, 0]</P>
+    <Branch>
+      <P Name="ZOrder">123</P>
+      <P Name="Points">[0, 185]</P>
+      <P Name="Dst">606#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">122</P>
+      <P Name="Labels">[1, 1]</P>
+      <P Name="Dst">524#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">22</P>
+    <P Name="Src">521#out:1</P>
+    <P Name="Dst">523#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">102</P>
+    <P Name="Src">629#out:1</P>
+    <P Name="Dst">627#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">104</P>
+    <P Name="Src">628#out:1</P>
+    <P Name="Dst">626#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">105</P>
+    <P Name="Src">626#out:1</P>
+    <P Name="Dst">625#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">106</P>
+    <P Name="Src">625#out:1</P>
+    <P Name="Dst">629#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">107</P>
+    <P Name="Src">624#out:1</P>
+    <P Name="Points">[75, 0]</P>
+    <P Name="Dst">629#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">111</P>
+    <P Name="Src">633#out:1</P>
+    <P Name="Dst">628#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;s64_u&gt;</P>
+    <P Name="ZOrder">114</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">632#out:1</P>
+    <P Name="Dst">633#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;s64_v&gt;</P>
+    <P Name="ZOrder">115</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">632#out:2</P>
+    <P Name="Dst">633#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;s64_w&gt;</P>
+    <P Name="ZOrder">116</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">632#out:3</P>
+    <P Name="Dst">633#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">121</P>
+    <P Name="Src">522#out:1</P>
+    <P Name="Dst">606#in:3</P>
+  </Line>
+  <Line>
+    <P Name="Name">ZeroSequenceVoltage</P>
+    <P Name="ZOrder">124</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">524#out:1</P>
+    <P Name="Points">[45, 0; 0, 140]</P>
+    <P Name="Dst">606#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">125</P>
+    <P Name="Src">606#out:1</P>
+    <P Name="Dst">558#in:1</P>
+  </Line>
+</System>

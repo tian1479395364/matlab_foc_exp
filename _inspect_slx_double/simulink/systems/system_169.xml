@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[480, 85, 980, 386]</P>
+  <P Name="SIDHighWatermark">3</P>
+  <Block BlockType="Demux" Name="Demux" SID="169:1">
+    <P Name="Tag">STV Demux</P>
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[150, 30, 160, 600]</P>
+    <P Name="ZOrder">-1</P>
+    <P Name="Outputs">1</P>
+    <P Name="DisplayOption">none</P>
+  </Block>
+  <Block BlockType="FromWorkspace" Name="FromWs" SID="169:2">
+    <P Name="Tag">STV FromWs</P>
+    <P Name="Position">[30, 300, 115, 350]</P>
+    <P Name="ZOrder">-2</P>
+    <P Name="VariableName">tuvar</P>
+    <P Name="SigBuilderData" Ref="bdmxdata:SigBuilderData_169_2"/>
+    <P Name="VnvData" Ref="bdmxdata:VnvData_169_2"/>
+  </Block>
+  <Block BlockType="Outport" Name="Signal 1" SID="169:3">
+    <P Name="Tag">STV Outport</P>
+    <P Name="Position">[280, 30, 300, 40]</P>
+    <P Name="ZOrder">-3</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">169:1#out:1</P>
+    <P Name="Points">[50, 0; 0, -280]</P>
+    <P Name="Dst">169:3#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">169:2#out:1</P>
+    <P Name="Points">[5, 0; 0, -10]</P>
+    <P Name="Dst">169:1#in:1</P>
+  </Line>
+</System>

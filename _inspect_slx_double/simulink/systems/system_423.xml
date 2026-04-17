@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-167, 7, 1277, 967]</P>
+  <P Name="ZoomFactor">125</P>
+  <Block BlockType="Inport" Name="i_alpha" SID="424">
+    <P Name="Position">[110, 103, 140, 117]</P>
+    <P Name="ZOrder">-1</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">i_alpha_clark</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="i_beta" SID="425">
+    <P Name="Position">[110, 183, 140, 197]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="Port">2</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">i_beta_clark</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Inport" Name="sin_cos" SID="426">
+    <P Name="Position">[35, 268, 65, 282]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Port">3</P>
+  </Block>
+  <Block BlockType="Demux" Name="Demux" SID="427">
+    <PortCounts in="1" out="2"/>
+    <P Name="Position">[125, 236, 130, 314]</P>
+    <P Name="ZOrder">291</P>
+    <P Name="Outputs">2</P>
+  </Block>
+  <Block BlockType="Product" Name="Product" SID="428">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[250, 102, 280, 133]</P>
+    <P Name="ZOrder">284</P>
+  </Block>
+  <Block BlockType="Product" Name="Product1" SID="429">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[250, 182, 280, 213]</P>
+    <P Name="ZOrder">285</P>
+  </Block>
+  <Block BlockType="Product" Name="Product2" SID="430">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[300, 227, 330, 258]</P>
+    <P Name="ZOrder">287</P>
+  </Block>
+  <Block BlockType="Product" Name="Product3" SID="431">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[300, 272, 330, 303]</P>
+    <P Name="ZOrder">288</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="432">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[330, 110, 350, 130]</P>
+    <P Name="ZOrder">286</P>
+    <P Name="Inputs">|++</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="433">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[365, 235, 385, 255]</P>
+    <P Name="ZOrder">289</P>
+    <P Name="Inputs">|-+</P>
+  </Block>
+  <Block BlockType="Outport" Name="i_d" SID="434">
+    <P Name="Position">[410, 113, 440, 127]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Block BlockType="Outport" Name="i_q" SID="435">
+    <P Name="Position">[410, 238, 440, 252]</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">433#out:1</P>
+    <P Name="Dst">435#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">431#out:1</P>
+    <P Name="Points">[40, 0]</P>
+    <P Name="Dst">433#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">430#out:1</P>
+    <P Name="Dst">433#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">425#out:1</P>
+    <P Name="Points">[21, 0]</P>
+    <Branch>
+      <P Name="ZOrder">5</P>
+      <P Name="Dst">429#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Points">[0, 90]</P>
+      <P Name="Dst">431#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">432#out:1</P>
+    <P Name="Dst">434#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">429#out:1</P>
+    <P Name="Points">[55, 0]</P>
+    <P Name="Dst">432#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">9</P>
+    <P Name="Src">428#out:1</P>
+    <P Name="Dst">432#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">10</P>
+    <P Name="Src">427#out:1</P>
+    <P Name="Points">[85, 0; 0, -5]</P>
+    <Branch>
+      <P Name="ZOrder">11</P>
+      <P Name="Dst">430#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">12</P>
+      <P Name="Points">[0, -45]</P>
+      <P Name="Dst">429#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">13</P>
+    <P Name="Src">427#out:2</P>
+    <P Name="Points">[95, 0]</P>
+    <Branch>
+      <P Name="ZOrder">14</P>
+      <P Name="Dst">431#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">15</P>
+      <P Name="Points">[0, -170]</P>
+      <P Name="Dst">428#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">16</P>
+    <P Name="Src">424#out:1</P>
+    <P Name="Points">[58, 0]</P>
+    <Branch>
+      <P Name="ZOrder">17</P>
+      <P Name="Dst">428#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">18</P>
+      <P Name="Points">[0, 48; 37, 0; 0, 77]</P>
+      <P Name="Dst">430#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">19</P>
+    <P Name="Src">426#out:1</P>
+    <P Name="Dst">427#in:1</P>
+  </Line>
+  <Annotation SID="436">
+    <P Name="Name">&lt;!DOCTYPE HTML PUBLIC &apos;-//W3C//DTD HTML 4.0//EN&apos; &apos;http://www.w3.org/TR/REC-html40/strict.dtd&apos;&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot;/&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+p, li { white-space: pre-wrap; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body align=&quot;left&quot; style=&quot; font-family:&apos;Helvetica&apos;; font-size:10px; font-weight:400; font-style:normal;&quot;&gt;
+&lt;p align=&quot;left&quot; style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;
+&lt;math style=&quot;font-size:10px;color:rgb(255, 0, 0);background-color:rgb(255, 255, 0);&quot;&gt;$i_d=i_\alpha cos\theta_e+i_\beta sin\theta_e\\
+i_q=-i_\alpha sin\theta_e + i_\beta cos\theta_e$&lt;/math&gt;
+&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</P>
+    <P Name="Position">[227, 38, 332, 74]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="Interpreter">rich</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+</System>

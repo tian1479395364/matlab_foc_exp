@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="ZoomFactor">150</P>
+  <Block BlockType="Inport" Name="u_alpha" SID="534">
+    <P Name="Position">[110, 98, 140, 112]</P>
+    <P Name="ZOrder">-1</P>
+  </Block>
+  <Block BlockType="Inport" Name="u_beta" SID="535">
+    <P Name="Position">[110, 218, 140, 232]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="Port">2</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="536">
+    <P Name="Position">[255, 145, 285, 175]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Gain">-1/2</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="537">
+    <P Name="Position">[255, 210, 285, 240]</P>
+    <P Name="ZOrder">4</P>
+    <P Name="Gain">sqrt(3)/2</P>
+  </Block>
+  <Block BlockType="Mux" Name="Mux" SID="538">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[500, 88, 505, 202]</P>
+    <P Name="ZOrder">6</P>
+    <P Name="Inputs">3</P>
+    <P Name="DisplayOption">bar</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="539">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[375, 150, 395, 170]</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Inputs">|++</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="540">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[375, 275, 395, 295]</P>
+    <P Name="ZOrder">5</P>
+    <P Name="Inputs">-+|</P>
+  </Block>
+  <Block BlockType="Outport" Name="u_abc_spwm" SID="541">
+    <P Name="Position">[600, 138, 630, 152]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">1</P>
+    <P Name="Src">536#out:1</P>
+    <P Name="Points">[28, 0]</P>
+    <Branch>
+      <P Name="ZOrder">2</P>
+      <P Name="Points">[0, 125]</P>
+      <P Name="Dst">540#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">3</P>
+      <P Name="Dst">539#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">535#out:1</P>
+    <P Name="Dst">537#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">537#out:1</P>
+    <P Name="Points">[95, 0]</P>
+    <Branch>
+      <P Name="ZOrder">6</P>
+      <P Name="Dst">540#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">7</P>
+      <P Name="Dst">539#in:2</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">8</P>
+    <P Name="Src">534#out:1</P>
+    <P Name="Points">[53, 0]</P>
+    <Branch>
+      <P Name="ZOrder">9</P>
+      <P Name="Dst">538#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">10</P>
+      <P Name="Points">[0, 55]</P>
+      <P Name="Dst">536#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">11</P>
+    <P Name="Src">539#out:1</P>
+    <P Name="Points">[48, 0; 0, -15]</P>
+    <P Name="Dst">538#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">12</P>
+    <P Name="Src">540#out:1</P>
+    <P Name="Points">[48, 0; 0, -100]</P>
+    <P Name="Dst">538#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">13</P>
+    <P Name="Src">538#out:1</P>
+    <P Name="Dst">541#in:1</P>
+  </Line>
+  <Annotation SID="544">
+    <P Name="Name">u_a_spwm</P>
+    <P Name="Position">[410, 88, 460, 103]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-1</P>
+  </Annotation>
+  <Annotation SID="543">
+    <P Name="Name">u_b_spwm</P>
+    <P Name="Position">[400, 138, 450, 153]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-2</P>
+  </Annotation>
+  <Annotation SID="542">
+    <P Name="Name">u_c_spwm</P>
+    <P Name="Position">[400, 253, 449, 268]</P>
+    <P Name="InternalMargins">[0, 0, 0, 0]</P>
+    <P Name="ZOrder">-3</P>
+  </Annotation>
+</System>

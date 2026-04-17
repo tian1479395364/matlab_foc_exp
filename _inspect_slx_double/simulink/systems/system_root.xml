@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -7, 1707, 1028]</P>
+  <P Name="Open">on</P>
+  <P Name="ReportName">simulink-default.rpt</P>
+  <P Name="SIDHighWatermark">867</P>
+  <Block BlockType="Reference" Name="Average-Value Inverter" SID="183">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[625, 665, 745, 725]</P>
+    <P Name="ZOrder">24644</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="LibraryVersion">9.0</P>
+    <P Name="SourceBlock">mcbplantlib/Average-Value Inverter</P>
+    <P Name="SourceType">Average Value Inverter</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">on</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="BusSelector" Name="Bus&#xA;Selector" SID="210">
+    <PortCounts in="1" out="4"/>
+    <P Name="Position">[1120, 581, 1125, 674]</P>
+    <P Name="ZOrder">24664</P>
+    <P Name="OutputSignals">MtrPos,MtrSpd,IdSync,IqSync</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">&lt;MtrPos&gt;</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="Name">&lt;MtrSpd&gt;</P>
+      </Port>
+      <Port Type="out" Index="3">
+        <P Name="Name">&lt;IdSync&gt;</P>
+      </Port>
+      <Port Type="out" Index="4">
+        <P Name="Name">&lt;IqSync&gt;</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="CCaller" Name="C Caller" SID="851">
+    <PortCounts in="3" out="1"/>
+    <P Name="Position">[1105, 361, 1425, 449]</P>
+    <P Name="ZOrder">24691</P>
+    <P Name="FunctionName">MATH_Scalar_MinimalJerk_Update</P>
+    <P Name="PortSpecificationStruct">  %)30     .    Z &lt;   8    (     @         %    &quot;     0    !     0         %  0 &quot;0    $    _    07)G3F%M90  4&amp;]R=$YA;64 4V-O&lt;&amp;4     26YD97@     5&apos;EP90      4VEZ90      27-&apos;;&amp;]B86P   X   !     !@    @    $          4    (     0    D    !         !     )    87!S7U-T871E          X   !     !@    @    $          4    (     0    D    !         !     )    87!S7U-T871E          X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;               #@   %@    &amp;    &quot;     0         !0    @    !    (@    $         $    &quot;(   !&quot;=7,Z($U!5$A?4V-A;&amp;%R7TUI;FEM86Q*97)K4W1A=&amp;54        #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !     !@    @    $          4    (     0    T    !         !     -    87!S7U!A&lt;F%M971E&lt;@    X   !     !@    @    $          4    (     0    T    !         !     -    87!S7U!A&lt;F%M971E&lt;@    X    X    !@    @    $          4    (     0    4    !         !     %    26YP=70    .    .     8    (    !@         %    &quot;     $    !     0         )    &quot;            / _#@   %@    &amp;    &quot;     0         !0    @    !    )@    $         $    &quot;8   !&quot;=7,Z($U!5$A?4V-A;&amp;%R7TUI;FEM86Q*97)K4&amp;%R86UE=&amp;5R5   #@   #     &amp;    &quot;     0         !0    @    !     0    $         $  ! #$    .    ,     8    (    &quot;0(        %    &quot;     $    !     0         &quot;  $       X   !(    !@    @    $          4    (     0   !(    !         !     2    87,V-%]39710;VEN=%-P965D        #@   $@    &amp;    &quot;     0         !0    @    !    $@    $         $    !(   !A&lt;S8T7U-E=%!O:6YT4W!E960        .    .     8    (    !          %    &quot;     $    %     0         0    !0   $EN&lt;&apos;5T    #@   #@    &amp;    &quot;     8         !0    @    !     0    $         &quot;0    @             0 X    X    !@    @    $          4    (     0    8    !         !     &amp;    9&amp;]U8FQE   .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      #@   $     &amp;    &quot;     0         !0    @    !    &quot;@    $         $     H   !A&lt;&apos;-?3W5T&lt;&apos;5T        #@   $     &amp;    &quot;     0         !0    @    !    &quot;@    $         $     H   !A&lt;&apos;-?3W5T&lt;&apos;5T        #@   #@    &amp;    &quot;     0         !0    @    !    !@    $         $     8   !/=71P=70   X    X    !@    @    &amp;          4    (     0    $    !          D    (               .    6     8    (    !          %    &quot;     $    C     0         0    (P   $)U&lt;SH@34%42%]38V%L87)?36EN:6UA;$IE&lt;FM/=71P=714       .    ,     8    (    !          %    &quot;     $    !     0         0  $ ,0    X    P    !@    @    ) @        4    (     0    $    !          (  0      </P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">ramp_speed</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="204">
+    <P Name="Position">[510, 60, 540, 90]</P>
+    <P Name="ZOrder">24658</P>
+    <P Name="Value">24</P>
+    <P Name="SampleTime">-1</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant1" SID="215">
+    <P Name="Position">[500, -5, 530, 25]</P>
+    <P Name="ZOrder">24669</P>
+    <P Name="Value">2*pi</P>
+    <P Name="SampleTime">-1</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant2" SID="858">
+    <P Name="Position">[955, 450, 985, 480]</P>
+    <P Name="ZOrder">24695</P>
+    <P Name="Value">448.8905875107363</P>
+    <P Name="SampleTime">TS_SPEED</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">target_speed</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Constant" Name="Constant3" SID="862">
+    <P Name="Position">[955, 330, 985, 360]</P>
+    <P Name="ZOrder">24697</P>
+    <P Name="Value">0</P>
+    <P Name="OutDataTypeStr">Bus: MATH_Scalar_MinimalJerkStateT</P>
+    <P Name="SampleTime">TS_SPEED</P>
+  </Block>
+  <Block BlockType="Constant" Name="Constant4" SID="863">
+    <P Name="Position">[955, 390, 985, 420]</P>
+    <P Name="ZOrder">24698</P>
+    <P Name="Value">0</P>
+    <P Name="OutDataTypeStr">Bus: MATH_Scalar_MinimalJerkParameterT</P>
+    <P Name="SampleTime">TS_SPEED</P>
+  </Block>
+  <Block BlockType="Demux" Name="Demux" SID="413">
+    <PortCounts in="1" out="3"/>
+    <P Name="Position">[490, 191, 500, 249]</P>
+    <P Name="ZOrder">24684</P>
+    <P Name="Outputs">3</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="FOC" SID="173">
+    <PortCounts in="5" out="4"/>
+    <P Name="Position">[865, 15, 975, 285]</P>
+    <P Name="ZOrder">24642</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">s16_PwmOnTicks</P>
+      </Port>
+      <Port Type="out" Index="2">
+        <P Name="PropagatedSignals">theta_est</P>
+      </Port>
+      <Port Type="out" Index="3">
+        <P Name="PropagatedSignals">mech_est</P>
+      </Port>
+      <Port Type="out" Index="4">
+        <P Name="PropagatedSignals">emega_est</P>
+      </Port>
+    </PortProperties>
+    <System Ref="system_173"/>
+  </Block>
+  <Block BlockType="From" Name="From" SID="195">
+    <P Name="Position">[435, 668, 480, 692]</P>
+    <P Name="ZOrder">24656</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="GotoTag">PWM</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">PWM</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="From" Name="From1" SID="206">
+    <P Name="Position">[530, 711, 570, 739]</P>
+    <P Name="ZOrder">24660</P>
+    <P Name="BackgroundColor">[0.392157, 0.831373, 0.074510]</P>
+    <P Name="GotoTag">Vbus</P>
+  </Block>
+  <Block BlockType="From" Name="From2" SID="208">
+    <P Name="Position">[390, 211, 440, 229]</P>
+    <P Name="ZOrder">24662</P>
+    <P Name="BackgroundColor">[0.717647, 0.274510, 1.000000]</P>
+    <P Name="GotoTag">I_Motor</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">I_Motor</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="From" Name="From3" SID="212">
+    <P Name="Position">[455, -34, 520, -16]</P>
+    <P Name="ZOrder">24666</P>
+    <P Name="BackgroundColor">[0.466667, 0.674510, 0.188235]</P>
+    <P Name="GotoTag">ThetaMotor</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">MtrPos</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="213">
+    <P Name="Position">[560, -40, 590, -10]</P>
+    <P Name="ZOrder">24667</P>
+    <P Name="Gain">Polepairs</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="219">
+    <P Name="Position">[1050, 685, 1080, 715]</P>
+    <P Name="ZOrder">24673</P>
+    <P Name="Gain">1/20</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto" SID="193">
+    <P Name="Position">[1160, 45, 1220, 65]</P>
+    <P Name="ZOrder">24654</P>
+    <P Name="BackgroundColor">yellow</P>
+    <P Name="GotoTag">PWM</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto1" SID="205">
+    <P Name="Position">[615, 80, 655, 110]</P>
+    <P Name="ZOrder">24659</P>
+    <P Name="BackgroundColor">[0.392157, 0.831373, 0.074510]</P>
+    <P Name="GotoTag">Vbus</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto2" SID="207">
+    <P Name="Position">[1030, 655, 1075, 675]</P>
+    <P Name="ZOrder">24661</P>
+    <P Name="BackgroundColor">[0.717647, 0.274510, 1.000000]</P>
+    <P Name="GotoTag">I_Motor</P>
+  </Block>
+  <Block BlockType="Goto" Name="Goto3" SID="211">
+    <P Name="Position">[1185, 582, 1245, 598]</P>
+    <P Name="ZOrder">24665</P>
+    <P Name="BackgroundColor">[0.466667, 0.674510, 0.188235]</P>
+    <P Name="GotoTag">ThetaMotor</P>
+  </Block>
+  <Block BlockType="Math" Name="Mod" SID="214">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[630, -33, 660, -2]</P>
+    <P Name="ZOrder">24668</P>
+    <P Name="Operator">mod</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition" SID="184">
+    <P Name="Position">[1030, 41, 1070, 69]</P>
+    <P Name="ZOrder">24645</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="Name">PWM</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition3" SID="417">
+    <P Name="Position">[620, 201, 660, 229]</P>
+    <P Name="ZOrder">24686</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition4" SID="419">
+    <P Name="Position">[620, 246, 660, 274]</P>
+    <P Name="ZOrder">24688</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition6" SID="190">
+    <P Name="Position">[710, -49, 750, -21]</P>
+    <P Name="ZOrder">24651</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition7" SID="191">
+    <P Name="Position">[615, 36, 655, 64]</P>
+    <P Name="ZOrder">24652</P>
+  </Block>
+  <Block BlockType="RateTransition" Name="Rate Transition8" SID="403">
+    <P Name="Position">[620, 141, 660, 169]</P>
+    <P Name="ZOrder">24678</P>
+  </Block>
+  <Block BlockType="Saturate" Name="Saturation1" SID="418">
+    <P Name="Position">[725, 200, 755, 230]</P>
+    <P Name="ZOrder">24685</P>
+    <P Name="UpperLimit">50</P>
+    <P Name="LowerLimit">-50</P>
+  </Block>
+  <Block BlockType="Saturate" Name="Saturation2" SID="420">
+    <P Name="Position">[725, 245, 755, 275]</P>
+    <P Name="ZOrder">24687</P>
+    <P Name="UpperLimit">50</P>
+    <P Name="LowerLimit">-50</P>
+  </Block>
+  <Block BlockType="Saturate" Name="Saturation3" SID="402">
+    <P Name="Position">[715, 140, 745, 170]</P>
+    <P Name="ZOrder">24677</P>
+    <P Name="UpperLimit">50</P>
+    <P Name="LowerLimit">-50</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="Subsystem" SID="196">
+    <PortCounts in="1" out="1"/>
+    <P Name="Position">[520, 665, 585, 695]</P>
+    <P Name="ZOrder">24657</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <System Ref="system_196"/>
+  </Block>
+  <Block BlockType="Reference" Name="Surface Mount PMSM" SID="182">
+    <PortCounts in="2" out="3"/>
+    <P Name="Position">[865, 612, 985, 718]</P>
+    <P Name="ZOrder">24643</P>
+    <P Name="HideAutomaticName">off</P>
+    <P Name="LibrarySourceBlock">mcblib/Electrical Systems/Motors/Surface Mount PMSM</P>
+    <P Name="LibraryVersion">9.0</P>
+    <P Name="SourceBlock">autolibpmsmexterior/Surface Mount PMSM</P>
+    <P Name="SourceType">Surface Mount PMSM</P>
+    <InstanceData>
+      <P Name="RTWMemSecFuncInitTerm">Inherit from model</P>
+      <P Name="RTWMemSecFuncExecute">Inherit from model</P>
+      <P Name="RTWMemSecDataConstants">Inherit from model</P>
+      <P Name="RTWMemSecDataInternal">Inherit from model</P>
+      <P Name="RTWMemSecDataParameters">Inherit from model</P>
+      <P Name="ContentPreviewEnabled">on</P>
+      <P Name="port_config">Torque</P>
+      <P Name="sim_type">Discrete</P>
+      <P Name="Ts">TsBSP</P>
+      <P Name="P">Polepairs_MODEL</P>
+      <P Name="Rs">Rs_MODEL</P>
+      <P Name="Ldq_">Ls_MODEL</P>
+      <P Name="KConstText">Permanent flux linkage constant (lambda_pm):</P>
+      <P Name="lambda_pm">flux_MODEL</P>
+      <P Name="Ke">159.9771</P>
+      <P Name="Kt">1.323</P>
+      <P Name="mechanical">[5.8e-4, 1.59e-4, 0]</P>
+      <P Name="idq0">[0 0]</P>
+      <P Name="theta_init">0</P>
+      <P Name="omega_init">0</P>
+      <P Name="KConst">flux_MODEL</P>
+      <P Name="lambda_pm_calc">flux_MODEL</P>
+      <P Name="RefBlkName">&apos;autolibpmsmexterior/Surface Mount PMSM&apos;</P>
+      <P Name="aMode">5</P>
+      <P Name="Ldq">[0.0017      0.0017]</P>
+    </InstanceData>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator" SID="216">
+    <P Name="Position">[1225, 605, 1245, 625]</P>
+    <P Name="ZOrder">24670</P>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator1" SID="217">
+    <P Name="Position">[1225, 630, 1245, 650]</P>
+    <P Name="ZOrder">24671</P>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator2" SID="218">
+    <P Name="Position">[1225, 655, 1245, 675]</P>
+    <P Name="ZOrder">24672</P>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator3" SID="864">
+    <P Name="Position">[1595, 395, 1615, 415]</P>
+    <P Name="ZOrder">24699</P>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator4" SID="865">
+    <P Name="Position">[1095, 110, 1115, 130]</P>
+    <P Name="ZOrder">24700</P>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator5" SID="866">
+    <P Name="Position">[1095, 175, 1115, 195]</P>
+    <P Name="ZOrder">24701</P>
+  </Block>
+  <Block BlockType="Terminator" Name="Terminator6" SID="867">
+    <P Name="Position">[1085, 240, 1105, 260]</P>
+    <P Name="ZOrder">24702</P>
+  </Block>
+  <Block BlockType="SubSystem" Name="untitledPanel" SID="859">
+    <P Name="Tag">HiddenForWebPanel</P>
+    <PortCounts/>
+    <P Name="Position">[100, 100, 100, 100]</P>
+    <P Name="ZOrder">24696</P>
+    <P Name="ShowName">off</P>
+    <P Name="ContentPreviewEnabled">on</P>
+    <P Name="IsWebBlockPanel">on</P>
+    <System Ref="system_859"/>
+  </Block>
+  <Line>
+    <P Name="ZOrder">31</P>
+    <P Name="Src">190#out:1</P>
+    <P Name="Points">[80, 0; 0, 75]</P>
+    <P Name="Dst">173#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">25</P>
+    <P Name="Src">173#out:1</P>
+    <P Name="Dst">184#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">24</P>
+    <P Name="Src">183#out:1</P>
+    <P Name="Dst">182#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">PWM</P>
+    <P Name="ZOrder">115</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">184#out:1</P>
+    <P Name="Dst">193#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">38</P>
+    <P Name="Src">195#out:1</P>
+    <P Name="Dst">196#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">39</P>
+    <P Name="Src">196#out:1</P>
+    <P Name="Dst">183#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">40</P>
+    <P Name="Src">204#out:1</P>
+    <P Name="Points">[18, 0]</P>
+    <Branch>
+      <P Name="ZOrder">42</P>
+      <P Name="Points">[0, 20]</P>
+      <P Name="Dst">205#in:1</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">41</P>
+      <P Name="Points">[0, -25]</P>
+      <P Name="Dst">191#in:1</P>
+    </Branch>
+  </Line>
+  <Line>
+    <P Name="ZOrder">43</P>
+    <P Name="Src">206#out:1</P>
+    <P Name="Points">[25, 0; 0, -15]</P>
+    <P Name="Dst">183#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">50</P>
+    <P Name="Src">182#out:1</P>
+    <P Name="Dst">210#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;MtrPos&gt;</P>
+    <P Name="ZOrder">51</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">210#out:1</P>
+    <P Name="Dst">211#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">52</P>
+    <P Name="Src">212#out:1</P>
+    <P Name="Dst">213#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">53</P>
+    <P Name="Src">213#out:1</P>
+    <P Name="Dst">214#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">54</P>
+    <P Name="Src">214#out:1</P>
+    <P Name="Points">[20, 0; 0, -20]</P>
+    <P Name="Dst">190#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">55</P>
+    <P Name="Src">215#out:1</P>
+    <P Name="Points">[75, 0; 0, -20]</P>
+    <P Name="Dst">214#in:2</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;MtrSpd&gt;</P>
+    <P Name="ZOrder">56</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">210#out:2</P>
+    <P Name="Dst">216#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;IdSync&gt;</P>
+    <P Name="ZOrder">57</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">210#out:3</P>
+    <P Name="Dst">217#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">&lt;IqSync&gt;</P>
+    <P Name="ZOrder">58</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">210#out:4</P>
+    <P Name="Dst">218#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">59</P>
+    <P Name="Src">182#out:3</P>
+    <P Name="Dst">219#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">60</P>
+    <P Name="Src">219#out:1</P>
+    <P Name="Points">[19, 0; 0, 54; -263, 0; 0, -114]</P>
+    <P Name="Dst">182#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">76</P>
+    <P Name="Src">191#out:1</P>
+    <P Name="Points">[158, 0; 0, 45]</P>
+    <P Name="Dst">173#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">78</P>
+    <P Name="Src">403#out:1</P>
+    <P Name="Dst">402#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">96</P>
+    <P Name="Src">182#out:2</P>
+    <P Name="Dst">207#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">101</P>
+    <P Name="Src">417#out:1</P>
+    <P Name="Dst">418#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">106</P>
+    <P Name="Src">418#out:1</P>
+    <P Name="Points">[24, 0; 0, -10]</P>
+    <P Name="Dst">173#in:4</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">107</P>
+    <P Name="Src">420#out:1</P>
+    <P Name="Dst">173#in:5</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">104</P>
+    <P Name="Src">419#out:1</P>
+    <P Name="Dst">420#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">105</P>
+    <P Name="Src">402#out:1</P>
+    <P Name="Points">[46, 0; 0, -5]</P>
+    <P Name="Dst">173#in:3</P>
+  </Line>
+  <Line>
+    <P Name="Name">I_Motor</P>
+    <P Name="ZOrder">108</P>
+    <P Name="Labels">[0, 0]</P>
+    <P Name="Src">208#out:1</P>
+    <P Name="Dst">413#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">110</P>
+    <P Name="Src">413#out:2</P>
+    <P Name="Points">[38, 0; 0, -5]</P>
+    <P Name="Dst">417#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">111</P>
+    <P Name="Src">413#out:3</P>
+    <P Name="Points">[38, 0; 0, 20]</P>
+    <P Name="Dst">419#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">113</P>
+    <P Name="Src">413#out:1</P>
+    <P Name="Points">[55, 0; 0, -45]</P>
+    <P Name="Dst">403#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">target_speed</P>
+    <P Name="ZOrder">119</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">858#out:1</P>
+    <P Name="Points">[55, 0; 0, -30]</P>
+    <P Name="Dst">851#in:3</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">120</P>
+    <P Name="Src">863#out:1</P>
+    <P Name="Dst">851#in:2</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">121</P>
+    <P Name="Src">862#out:1</P>
+    <P Name="Points">[23, 0; 0, 30]</P>
+    <P Name="Dst">851#in:1</P>
+  </Line>
+  <Line>
+    <P Name="Name">ramp_speed</P>
+    <P Name="ZOrder">122</P>
+    <P Name="Labels">[1, 1]</P>
+    <P Name="Src">851#out:1</P>
+    <P Name="Dst">864#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">123</P>
+    <P Name="Src">173#out:2</P>
+    <P Name="Dst">865#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">124</P>
+    <P Name="Src">173#out:3</P>
+    <P Name="Dst">866#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">125</P>
+    <P Name="Src">173#out:4</P>
+    <P Name="Dst">867#in:1</P>
+  </Line>
+</System>

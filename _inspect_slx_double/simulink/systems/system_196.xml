@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<System>
+  <P Name="Location">[-1, -1088, 1935, -32]</P>
+  <Block BlockType="Inport" Name="DutyIn" SID="197">
+    <P Name="Position">[-35, 103, -5, 117]</P>
+    <P Name="ZOrder">-1</P>
+    <PortProperties>
+      <Port Type="out" Index="1">
+        <P Name="PropagatedSignals">PWM</P>
+      </Port>
+    </PortProperties>
+  </Block>
+  <Block BlockType="Constant" Name="Constant" SID="203">
+    <P Name="Position">[80, 165, 110, 195]</P>
+    <P Name="ZOrder">5</P>
+    <P Name="Value">0.5</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain" SID="199">
+    <P Name="Position">[70, 95, 100, 125]</P>
+    <P Name="ZOrder">1</P>
+    <P Name="Gain">1/PWMHalfPeriod_MODEL</P>
+  </Block>
+  <Block BlockType="Gain" Name="Gain1" SID="201">
+    <P Name="Position">[270, 95, 300, 125]</P>
+    <P Name="ZOrder">3</P>
+    <P Name="Gain">-1</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum" SID="200">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[155, 100, 175, 120]</P>
+    <P Name="ZOrder">2</P>
+    <P Name="Inputs">|+-</P>
+  </Block>
+  <Block BlockType="Sum" Name="Sum1" SID="202">
+    <PortCounts in="2" out="1"/>
+    <P Name="Position">[375, 100, 395, 120]</P>
+    <P Name="ZOrder">4</P>
+    <P Name="Inputs">|++</P>
+  </Block>
+  <Block BlockType="Outport" Name="DutyOut" SID="198">
+    <P Name="Position">[475, 103, 505, 117]</P>
+    <P Name="ZOrder">-2</P>
+  </Block>
+  <Line>
+    <P Name="ZOrder">2</P>
+    <P Name="Src">197#out:1</P>
+    <P Name="Dst">199#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">3</P>
+    <P Name="Src">199#out:1</P>
+    <P Name="Dst">200#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">4</P>
+    <P Name="Src">200#out:1</P>
+    <P Name="Dst">201#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">5</P>
+    <P Name="Src">201#out:1</P>
+    <P Name="Dst">202#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">6</P>
+    <P Name="Src">202#out:1</P>
+    <P Name="Dst">198#in:1</P>
+  </Line>
+  <Line>
+    <P Name="ZOrder">7</P>
+    <P Name="Src">203#out:1</P>
+    <P Name="Points">[50, 0]</P>
+    <Branch>
+      <P Name="ZOrder">9</P>
+      <P Name="Points">[220, 0]</P>
+      <P Name="Dst">202#in:2</P>
+    </Branch>
+    <Branch>
+      <P Name="ZOrder">8</P>
+      <P Name="Dst">200#in:2</P>
+    </Branch>
+  </Line>
+</System>
